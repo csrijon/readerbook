@@ -15,13 +15,13 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 // Dummy data for books
 const booksTrending = [
-  { id: 1, title: '7 Habits', image: require('../assets/image 7 (2).png') },
-  { id: 2, title: 'Zero to One', image: require('../assets/image 7 (2).png') },
+  { id: 1, title: '7 Habits', image: require('../assets/image7.png') },
+  { id: 2, title: 'Zero to One', image: require('../assets/image7.png') },
 ];
 
 const booksFavourites = [
-  { id: 3, title: 'Think and Grow Rich', image: require('../assets/image 7 (2).png') },
-  { id: 4, title: '365 Days', image: require('../assets/image 7 (2).png') },
+  { id: 3, title: 'Think and Grow Rich', image: require('../assets/image7.png') },
+  { id: 4, title: '365 Days', image: require('../assets/image7.png') },
 ];
 
 // Functional Component

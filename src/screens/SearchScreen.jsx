@@ -1,11 +1,12 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, TouchableOpacity, View, TextInput, Text, ScrollView, Image } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, TouchableOpacity, View, TextInput, Text, ScrollView, Image } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const SearchScreen = () => {
     const inset = useSafeAreaInsets()
     return (
-        <SafeAreaView style={[styles.Container, { paddingTop: inset.top, }]} >
+        <SafeAreaView style={[styles.Container, { paddingTop: inset.top }]} >
+            <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
             <TouchableOpacity style={styles.backArrow} >
                 <MaterialIcons name="arrow-back-ios" color="#000000" size={24} />
             </TouchableOpacity>
@@ -46,6 +47,7 @@ const SearchScreen = () => {
                 <Text style={styles.Trandingheading} >Trending Books</Text>
                 <ScrollView horizontal
                     showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={{ paddingBottom: inset.bottom + 80 }} 
                 >
                     {books.map((book) => (
                         <View style={styles.bookCard} key={book.id} >
@@ -56,10 +58,12 @@ const SearchScreen = () => {
                 </ScrollView>
             </View>
 
-            <View style={styles.bottomNav}>
-                <TouchableOpacity><MaterialIcons name="house" color="#ffffff" size={24} /></TouchableOpacity>
-                <TouchableOpacity><MaterialIcons name="search" color="#ffffff" size={24} /></TouchableOpacity>
-                <TouchableOpacity><MaterialIcons name="bookmark-border" color="#ffffff" size={24} /></TouchableOpacity>
+            <View style={[styles.bottomNavWrapper, { paddingBottom: inset.bottom }]}>
+                <View style={styles.bottomNav}>
+                    <TouchableOpacity><MaterialIcons name="house" color="#ffffff" size={24} /></TouchableOpacity>
+                    <TouchableOpacity><MaterialIcons name="search" color="#ffffff" size={24} /></TouchableOpacity>
+                    <TouchableOpacity><MaterialIcons name="bookmark-border" color="#ffffff" size={24} /></TouchableOpacity>
+                </View>
             </View>
 
         </SafeAreaView>
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
         padding: 18,
     },
     backArrow: {
-        marginTop: 30,
+        marginTop: 20,
         paddingLeft: 5,
     },
     SearchView: {
@@ -121,7 +125,7 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
     AuthorsContainer: {
-        marginTop: 50,
+        marginTop: 20,
     },
     heading: {
         fontSize: 16,
@@ -145,7 +149,7 @@ const styles = StyleSheet.create({
         color: '#000',
     },
     Trandingcontainer: {
-        marginVertical: 50,
+        marginVertical: 20,
     },
     Trandingheading: {
         fontSize: 16,
@@ -158,17 +162,20 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     bottomNav: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        paddingVertical: 12,
-        borderTopWidth: 1,
-        borderColor: '#ccc',
-        backgroundColor: '#4B2BAA',
-        position: 'absolute',
-        bottom: 15,
-        left: 0,
-        right: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 12,
+},
+    navButton: {
+        padding: 10,
     },
+    bottomNavWrapper: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#4B2BAA'
+},
 
 })
 
