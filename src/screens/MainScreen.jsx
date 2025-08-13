@@ -25,14 +25,14 @@ const booksFavourites = [
 ];
 
 // Functional Component
-const MainScreen = ({navigation}) => {
+const MainScreen = () => {
   const insets = useSafeAreaInsets();
 
   return (
     <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={()=>navigation.openDrawer()} >
+        <TouchableOpacity  >
           <Text style={styles.menuIcon}>☰</Text> {/* Menu icon */}
         </TouchableOpacity>
         <Text style={styles.headerTitle}>ReadLink</Text>
