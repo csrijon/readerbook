@@ -1,6 +1,4 @@
 import React from 'react';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-
 import {
   View,
   Text,
@@ -8,10 +6,12 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
+  StatusBar
 } from 'react-native';
 
 // Importing the hook to handle safe area (top notch, punch hole etc.)
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Bottomnav from '../components/Bottomnav';
 
 // Dummy data for books
 const booksTrending = [
@@ -29,7 +29,8 @@ const MainScreen = () => {
   const insets = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
+      <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity  >
@@ -38,7 +39,7 @@ const MainScreen = () => {
         <Text style={styles.headerTitle}>ReadLink</Text>
         <TouchableOpacity>
           <View style={styles.circles}>
-            
+
           </View>
         </TouchableOpacity>
       </View>
@@ -89,11 +90,7 @@ const MainScreen = () => {
       </ScrollView>
 
       {/* Bottom Navigation */}
-      <View style={styles.bottomNav}>
-        <TouchableOpacity><MaterialIcons name="house" color="#ffffff" size={24} /></TouchableOpacity>
-        <TouchableOpacity><MaterialIcons name="search" color="#ffffff" size={24} /></TouchableOpacity>
-        <TouchableOpacity><MaterialIcons name="bookmark-border" color="#ffffff" size={24} /></TouchableOpacity>
-      </View>
+      <Bottomnav />
     </View>
   );
 };
@@ -180,4 +177,11 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '500',
   },
+  bottomNavWrapper: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#4B2BAA'
+  }
 });

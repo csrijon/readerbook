@@ -3,6 +3,7 @@ import { SafeAreaView, StatusBar, StyleSheet, TouchableOpacity, View, Text, Scro
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Search from '../components/Search';
+import Bottomnav from '../components/Bottomnav';
 const SearchScreen = () => {
     const inset = useSafeAreaInsets()
     return (
@@ -16,10 +17,6 @@ const SearchScreen = () => {
             <Search
                 placeholder="Search Here..."
             />
-            {/* <View style={styles.SearchView} >
-                <MaterialIcons style={styles.searcharrow} name="search" color="#000000" size={24} />
-                <TextInput style={styles.input} placeholder='Search' placeholderTextColor="#9D83D2" />
-            </View> */}
 
             <View style={styles.mainCategories} >
                 <Text style={styles.TextCategories}  >Categories</Text>
@@ -64,13 +61,7 @@ const SearchScreen = () => {
                 </ScrollView>
             </View>
 
-            <View style={[styles.bottomNavWrapper, { paddingBottom: inset.bottom }]}>
-                <View style={styles.bottomNav}>
-                    <TouchableOpacity><MaterialIcons name="house" color="#ffffff" size={24} /></TouchableOpacity>
-                    <TouchableOpacity><MaterialIcons name="search" color="#ffffff" size={24} /></TouchableOpacity>
-                    <TouchableOpacity><MaterialIcons name="bookmark-border" color="#ffffff" size={24} /></TouchableOpacity>
-                </View>
-            </View>
+            <Bottomnav />
 
         </SafeAreaView>
     )
@@ -151,20 +142,8 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         overflow: 'hidden',
     },
-    bottomNav: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        paddingVertical: 12,
-    },
     navButton: {
         padding: 10,
-    },
-    bottomNavWrapper: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: '#4B2BAA'
     },
 
 })
