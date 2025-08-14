@@ -3,7 +3,6 @@ import {
   SafeAreaView,
   View,
   Text,
-  TextInput,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
@@ -12,6 +11,7 @@ import {
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Search from '../components/Search';
 const books = [
   {
     title: '365 Days With Self-Discipline',
@@ -52,14 +52,9 @@ export default function BookListScreen() {
       </TouchableOpacity>
 
       {/* Search Bar */}
-      <View style={styles.searchBar}>
-        <MaterialIcons name="search" size={22} color="#9c73e8" />
-        <TextInput
-          placeholder="Search"
-          placeholderTextColor="#b58ef3"
-          style={styles.searchInput}
-        />
-      </View>
+      <Search 
+      placeholder = "Search Here..."
+      />
 
       {/* Book List */}
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
@@ -105,22 +100,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 5,
   },
-  searchBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#e8d5fd',
-    marginHorizontal: 15,
-    marginTop: 10,
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    height: 45,
-  },
-  searchInput: {
-    flex: 1,
-    marginLeft: 5,
-    fontSize: 16,
-    color: '#9c73e8',
-  },
+  // searchBar: {
+  //   flexDirection: 'row',
+  //   alignItems: 'center',
+  //   backgroundColor: '#e8d5fd',
+  //   marginHorizontal: 15,
+  //   marginTop: 10,
+  //   borderRadius: 10,
+  //   paddingHorizontal: 10,
+  //   height: 45,
+  // },
+  // searchInput: {
+  //   flex: 1,
+  //   marginLeft: 5,
+  //   fontSize: 16,
+  //   color: '#9c73e8',
+  // },
   bookCard: {
     flexDirection: 'row',
     alignItems: 'flex-start',

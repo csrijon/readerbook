@@ -1,7 +1,8 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, StyleSheet, TouchableOpacity, View, TextInput, Text, ScrollView, Image } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, TouchableOpacity, View, Text, ScrollView, Image } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Search from '../components/Search';
 const SearchScreen = () => {
     const inset = useSafeAreaInsets()
     return (
@@ -10,10 +11,15 @@ const SearchScreen = () => {
             <TouchableOpacity style={styles.backArrow} >
                 <MaterialIcons name="arrow-back-ios" color="#000000" size={24} />
             </TouchableOpacity>
-            <View style={styles.SearchView} >
+
+            {/* Search Bar */}
+            <Search
+                placeholder="Search Here..."
+            />
+            {/* <View style={styles.SearchView} >
                 <MaterialIcons style={styles.searcharrow} name="search" color="#000000" size={24} />
                 <TextInput style={styles.input} placeholder='Search' placeholderTextColor="#9D83D2" />
-            </View>
+            </View> */}
 
             <View style={styles.mainCategories} >
                 <Text style={styles.TextCategories}  >Categories</Text>
@@ -47,7 +53,7 @@ const SearchScreen = () => {
                 <Text style={styles.Trandingheading} >Trending Books</Text>
                 <ScrollView horizontal
                     showsHorizontalScrollIndicator={false}
-                    contentContainerStyle={{ paddingBottom: inset.bottom + 80 }} 
+                    contentContainerStyle={{ paddingBottom: inset.bottom + 80 }}
                 >
                     {books.map((book) => (
                         <View style={styles.bookCard} key={book.id} >
@@ -81,22 +87,6 @@ const styles = StyleSheet.create({
     backArrow: {
         marginTop: 20,
         paddingLeft: 5,
-    },
-    SearchView: {
-        marginTop: 10,
-        padding: 10,
-        flexDirection: 'row',
-        alignItems: 'center',
-        borderRadius: 22,
-        backgroundColor: '#EADDFF',
-    },
-    searcharrow: {
-        paddingLeft: 16,
-    },
-    input: {
-        flex: 1,
-        marginLeft: 8,
-        color: '#9b59b6',
     },
     mainCategories: {
         marginTop: 30,
@@ -162,20 +152,20 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     bottomNav: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 12,
-},
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        paddingVertical: 12,
+    },
     navButton: {
         padding: 10,
     },
     bottomNavWrapper: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#4B2BAA'
-},
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: '#4B2BAA'
+    },
 
 })
 
@@ -219,6 +209,6 @@ const books = [
     {
         id: 4,
         title: "Rich Dad Poor Dad",
-        image: require('../assets/Rectangle394.png'),
+        image: require('../assets/Rectangle393.png'),
     },
 ];
