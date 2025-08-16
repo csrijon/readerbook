@@ -6,21 +6,17 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
-  Platform,
+  // Platform,
   StatusBar,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 const SignInScreen = () => {
   const insets = useSafeAreaInsets();
 
   // ✅ OnePlus-safe top inset calculation
-  const topInset =
-    insets.top && insets.top > 0
-      ? insets.top
-      : Platform.OS === 'android'
-        ? StatusBar.currentHeight || 24 // fallback
-        : 0;
+  const topInset = useSafeAreaInsets()
 
   return (
     <>
@@ -32,7 +28,6 @@ const SignInScreen = () => {
       />
 
       <SafeAreaView
-        edges={['top', 'left', 'right', 'bottom']} // force all edges
         style={[
           styles.container,
           {
@@ -43,7 +38,7 @@ const SignInScreen = () => {
       >
         {/* Back Arrow */}
         <TouchableOpacity style={styles.backButton}>
-          <Text style={styles.backArrow}>{'\u2190'}</Text>
+          <MaterialIcons style name="arrow-back-ios" size={22} color="#fff" />
         </TouchableOpacity>
 
         {/* Sign In Title */}
@@ -106,10 +101,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     marginBottom: 30,
-  },
-  backArrow: {
-    fontSize: 24,
-    color: '#fff',
+    marginTop:50
   },
   title: {
     color: '#fff',

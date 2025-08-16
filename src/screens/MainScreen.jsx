@@ -118,6 +118,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
+    borderBottomWidth: 2,
+    borderBottomColor: "#ccc",
   },
   headerTitle: {
     color: '#fff',
@@ -164,14 +166,6 @@ const styles = StyleSheet.create({
   viewAll: {
     color: '#6A00FF',
     fontWeight: '500',
-  },
-  bottomNav: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 12,
-    borderTopWidth: 1,
-    borderColor: '#ccc',
-    backgroundColor: '#4B2BAA',
   },
   navItem: {
     color: '#fff',

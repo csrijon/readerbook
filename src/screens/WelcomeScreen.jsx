@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity,StatusBar, StyleSheet, Image } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const WelcomeScreen = () => {
@@ -12,6 +12,7 @@ const WelcomeScreen = () => {
         { paddingTop: insets.top, paddingBottom: insets.bottom }
       ]}
     >
+       <StatusBar translucent backgroundColor="#23085A" barStyle="dark-content" />
       {/* Logo and Title */}
       <View style={styles.logoContainer}>
         <Image source={require('../assets/Vector.png')} style={styles.logo} />

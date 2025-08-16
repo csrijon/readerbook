@@ -11,11 +11,12 @@ const SearchScreen = () => {
             <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
             <TouchableOpacity style={styles.backArrow} >
                 <MaterialIcons name="arrow-back-ios" color="#000000" size={24} />
-            </TouchableOpacity>
+            </TouchableOpacity  >
 
             {/* Search Bar */}
             <Search
                 placeholder="Search Here..."
+
             />
 
             <View style={styles.mainCategories} >
@@ -73,11 +74,11 @@ const styles = StyleSheet.create({
     Container: {
         flex: 1,
         backgroundColor: 'white',
-        padding: 18,
+        paddingHorizontal: 30,
     },
     backArrow: {
-        marginTop: 20,
-        paddingLeft: 5,
+        marginTop: 30,
+    
     },
     mainCategories: {
         marginTop: 30,

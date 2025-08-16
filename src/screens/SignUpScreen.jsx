@@ -1,22 +1,25 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput,SafeAreaView, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 const SignUpScreen = () => {
   const insets = useSafeAreaInsets();
   console.log("SignUpScreen loaded"); 
 
   return (
-    <View
+    <SafeAreaView
       style={[
         styles.container,
         {
           paddingTop: insets.top,
-          paddingBottom: insets.bottom
+          // paddingBottom: insets.bottom
         }
       ]}
     >
-      <Text style={styles.backArrow}>{'\u2190'}</Text>
+      <TouchableOpacity style = {styles.backArrow} >
+        <MaterialIcons name="arrow-back-ios" size={22} color="#fff" />
+      </TouchableOpacity>
+     
       <Text style={styles.title}>Create New Account</Text>
 
       <TextInput style={styles.input} placeholder="Full name" placeholderTextColor="#ccc" />
@@ -49,7 +52,7 @@ const SignUpScreen = () => {
           />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -60,11 +63,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#26046d',
     paddingHorizontal: 30,
+    
   },
   backArrow: {
     fontSize: 24,
     color: 'white',
     marginBottom: 30,
+    marginTop:50
   },
   title: {
     color: 'white',
