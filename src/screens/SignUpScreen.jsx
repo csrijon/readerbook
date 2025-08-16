@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput,SafeAreaView, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput,SafeAreaView,StatusBar, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 const SignUpScreen = () => {
@@ -12,10 +12,10 @@ const SignUpScreen = () => {
         styles.container,
         {
           paddingTop: insets.top,
-          // paddingBottom: insets.bottom
         }
       ]}
     >
+       <StatusBar translucent backgroundColor="#26046d" barStyle="light-content" />
       <TouchableOpacity style = {styles.backArrow} >
         <MaterialIcons name="arrow-back-ios" size={22} color="#fff" />
       </TouchableOpacity>

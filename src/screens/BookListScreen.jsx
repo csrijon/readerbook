@@ -7,57 +7,31 @@ import {
   TouchableOpacity,
   ScrollView,
   Image,
+  StatusBar
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Search from '../components/Search';
-const books = [
-  {
-    title: '365 Days With Self-Discipline',
-    author: 'Martin Meadows',
-    image: require('../assets/Rectangle392.png'),
-  },
-  {
-    title: 'Atomic Habits',
-    author: 'James Clear',
-    image: require('../assets/Rectangle392.png'),
-  },
-  {
-    title: 'Atomic Habits',
-    author: 'James Clear',
-    image: require('../assets/Rectangle393.png'),
-  },
-  {
-    title: 'Think and Grow Rich',
-    author: 'Napoleon Hill',
-    image: require('../assets/Rectangle394.png'),
-  },
-  {
-    title: 'The 40 Rules of Love',
-    author: 'Elif Shafak',
-    image: require('../assets/Rectangle393.png'),
-  },
-];
-
+import Bottomnav from '../components/Bottomnav';
 
 
 export default function BookListScreen() {
   const inset = useSafeAreaInsets()
   return (
     <SafeAreaView style={[styles.container,{paddingTop:inset.top}]}>
+       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
       {/* Back Button */}
       <TouchableOpacity style={styles.backBtn}>
-        <Ionicons name="chevron-back" size={26} color="black" />
+        <MaterialIcons name="arrow-back-ios" color="#000000" size={24} />
       </TouchableOpacity>
 
       {/* Search Bar */}
-      <Search 
+      <View style = {styles.Search} ><Search 
       placeholder = "Search Here..."
-      />
-
+      /></View>
+      
       {/* Book List */}
-      <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
+      <ScrollView style = {styles.scroll} contentContainerStyle={{ paddingBottom: 20 }}>
         {books.map((book, index) => (
           <View key={index} style={styles.bookCard}>
             {/* Image */}
@@ -86,6 +60,7 @@ export default function BookListScreen() {
           </View>
         ))}
       </ScrollView>
+<Bottomnav/>
     </SafeAreaView>
   );
 }
@@ -94,28 +69,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    marginTop:18,
+  },
+  Search:{
+    paddingHorizontal:16
   },
   backBtn: {
-    paddingHorizontal: 10,
-    paddingTop: 5,
+    paddingHorizontal: 16,
+    marginTop:30
   },
-  // searchBar: {
-  //   flexDirection: 'row',
-  //   alignItems: 'center',
-  //   backgroundColor: '#e8d5fd',
-  //   marginHorizontal: 15,
-  //   marginTop: 10,
-  //   borderRadius: 10,
-  //   paddingHorizontal: 10,
-  //   height: 45,
-  // },
-  // searchInput: {
-  //   flex: 1,
-  //   marginLeft: 5,
-  //   fontSize: 16,
-  //   color: '#9c73e8',
-  // },
+  scroll:{
+    paddingHorizontal:8
+  },
   bookCard: {
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -155,3 +119,30 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+const books = [
+  {
+    title: '365 Days With Self-Discipline',
+    author: 'Martin Meadows',
+    image: require('../assets/Rectangle392.png'),
+  },
+  {
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    image: require('../assets/Rectangle392.png'),
+  },
+  {
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    image: require('../assets/Rectangle393.png'),
+  },
+  {
+    title: 'Think and Grow Rich',
+    author: 'Napoleon Hill',
+    image: require('../assets/Rectangle394.png'),
+  },
+  {
+    title: 'The 40 Rules of Love',
+    author: 'Elif Shafak',
+    image: require('../assets/Rectangle393.png'),
+  },
+];

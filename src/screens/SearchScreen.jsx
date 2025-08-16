@@ -14,6 +14,7 @@ const SearchScreen = () => {
             </TouchableOpacity  >
 
             {/* Search Bar */}
+        
             <Search
                 placeholder="Search Here..."
 
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     Container: {
         flex: 1,
         backgroundColor: 'white',
-        paddingHorizontal: 30,
+        paddingHorizontal: 16,
     },
     backArrow: {
         marginTop: 30,

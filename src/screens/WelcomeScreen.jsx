@@ -12,7 +12,7 @@ const WelcomeScreen = () => {
         { paddingTop: insets.top, paddingBottom: insets.bottom }
       ]}
     >
-       <StatusBar translucent backgroundColor="#23085A" barStyle="dark-content" />
+       <StatusBar translucent backgroundColor="#23085A" barStyle="light-content" />
       {/* Logo and Title */}
       <View style={styles.logoContainer}>
         <Image source={require('../assets/Vector.png')} style={styles.logo} />
