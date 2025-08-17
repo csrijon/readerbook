@@ -2,7 +2,9 @@ import React from 'react';
 import { View, Text, TextInput,SafeAreaView,StatusBar, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-const SignUpScreen = () => {
+
+
+const SignUpScreen = ({navigation}) => {
   const insets = useSafeAreaInsets();
   console.log("SignUpScreen loaded"); 
 
@@ -16,7 +18,9 @@ const SignUpScreen = () => {
       ]}
     >
        <StatusBar translucent backgroundColor="#26046d" barStyle="light-content" />
-      <TouchableOpacity style = {styles.backArrow} >
+      <TouchableOpacity style = {styles.backArrow}
+      onPress={()=> navigation.goBack()}
+      >
         <MaterialIcons name="arrow-back-ios" size={22} color="#fff" />
       </TouchableOpacity>
      

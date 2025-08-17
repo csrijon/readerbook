@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, TouchableOpacity,StatusBar, StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity,StatusBar,Alert, StyleSheet, Image } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const WelcomeScreen = () => {
+
+const WelcomeScreen = ({navigation}) => {
   const insets = useSafeAreaInsets(); 
 
   return (
@@ -21,7 +22,9 @@ const WelcomeScreen = () => {
 
       {/* Buttons */}
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button}
+        onPress={()=> navigation.navigate("signup") }
+        >
           <Text style={styles.buttonText}>Get Started</Text>
         </TouchableOpacity>
 
