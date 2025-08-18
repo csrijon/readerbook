@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -8,15 +8,27 @@ import {
   Image,
   // Platform,
   StatusBar,
+  Alert,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-const SignInScreen = () => {
+const SignInScreen = ({ navigation }) => {
+
+  const [usernames, setusernames] = useState('')
+  const [password, setpassword] = useState('')
+
   const insets = useSafeAreaInsets();
 
-  // ✅ OnePlus-safe top inset calculation
-  const topInset = useSafeAreaInsets()
+
+  const signinbutton = () => {
+    if (!usernames || !password) {
+     Alert.alert('please put username and password')
+    }else{
+      navigation.navigate('Home')
+    }
+  }
+
 
   return (
     <>
@@ -31,13 +43,12 @@ const SignInScreen = () => {
         style={[
           styles.container,
           {
-            paddingTop: topInset,
             paddingBottom: insets.bottom,
           },
         ]}
       >
         {/* Back Arrow */}
-        <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
           <MaterialIcons style name="arrow-back-ios" size={22} color="#fff" />
         </TouchableOpacity>
 
@@ -49,6 +60,8 @@ const SignInScreen = () => {
           style={styles.input}
           placeholder="Username"
           placeholderTextColor="#bbb"
+          value={usernames}
+          onChangeText={setusernames}
         />
 
         {/* Password Input */}
@@ -57,10 +70,12 @@ const SignInScreen = () => {
           placeholder="Password"
           placeholderTextColor="#bbb"
           secureTextEntry
+          value={password}
+          onChangeText={setpassword}
         />
 
         {/* Sign Up Button */}
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity onPress={signinbutton} style={styles.button}>
           <Text style={styles.buttonText}>Sign up</Text>
         </TouchableOpacity>
 
@@ -101,7 +116,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     marginBottom: 30,
-    marginTop:50
+    marginTop: 50
   },
   title: {
     color: '#fff',

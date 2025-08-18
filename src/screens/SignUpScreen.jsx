@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, {  useState } from 'react';
 import { View, Text, TextInput, SafeAreaView, StatusBar, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
@@ -8,8 +8,16 @@ const SignUpScreen = ({ navigation }) => {
 
   const [email, setemail] = useState('')
   const [name, setname] = useState('')
-  const [password,setpassword] = useState('')
+  const [password, setpassword] = useState('')
   const insets = useSafeAreaInsets();
+
+  const signuppress = () => {
+    if (!name || !email || !password) {
+      Alert.alert('please filled the form')
+    } else {
+      navigation.navigate("signin")
+    }
+  }
 
   return (
     <SafeAreaView
@@ -31,9 +39,9 @@ const SignUpScreen = ({ navigation }) => {
 
       <TextInput style={styles.input} value={name} onChangeText={setname} placeholder="Full name" placeholderTextColor="#ccc" />
       <TextInput style={styles.input} value={email} onChangeText={setemail} placeholder="Email" placeholderTextColor="#ccc" keyboardType="email-address" />
-      <TextInput style={styles.input} value= {password} onChangeText={setpassword} placeholder="Password" placeholderTextColor="#ccc" secureTextEntry />
+      <TextInput style={styles.input} value={password} onChangeText={setpassword} placeholder="Password" placeholderTextColor="#ccc" secureTextEntry />
 
-      <TouchableOpacity onPress={() => console.log(name,email,password)} style={styles.signupButton}>
+      <TouchableOpacity onPress={signuppress} style={styles.signupButton}>
         <Text style={styles.signupText}>Sign up</Text>
       </TouchableOpacity>
 
