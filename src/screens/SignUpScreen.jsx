@@ -1,12 +1,15 @@
-import React from 'react';
-import { View, Text, TextInput,SafeAreaView,StatusBar, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import React, { use, useState } from 'react';
+import { View, Text, TextInput, SafeAreaView, StatusBar, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 
-const SignUpScreen = ({navigation}) => {
+const SignUpScreen = ({ navigation }) => {
+
+  const [email, setemail] = useState('')
+  const [name, setname] = useState('')
+  const [password,setpassword] = useState('')
   const insets = useSafeAreaInsets();
-  console.log("SignUpScreen loaded"); 
 
   return (
     <SafeAreaView
@@ -17,20 +20,20 @@ const SignUpScreen = ({navigation}) => {
         }
       ]}
     >
-       <StatusBar translucent backgroundColor="#26046d" barStyle="light-content" />
-      <TouchableOpacity style = {styles.backArrow}
-      onPress={()=> navigation.goBack()}
+      <StatusBar translucent backgroundColor="#26046d" barStyle="light-content" />
+      <TouchableOpacity style={styles.backArrow}
+        onPress={() => navigation.goBack()}
       >
         <MaterialIcons name="arrow-back-ios" size={22} color="#fff" />
       </TouchableOpacity>
-     
+
       <Text style={styles.title}>Create New Account</Text>
 
-      <TextInput style={styles.input} placeholder="Full name" placeholderTextColor="#ccc" />
-      <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#ccc" keyboardType="email-address" />
-      <TextInput style={styles.input} placeholder="Password" placeholderTextColor="#ccc" secureTextEntry />
+      <TextInput style={styles.input} value={name} onChangeText={setname} placeholder="Full name" placeholderTextColor="#ccc" />
+      <TextInput style={styles.input} value={email} onChangeText={setemail} placeholder="Email" placeholderTextColor="#ccc" keyboardType="email-address" />
+      <TextInput style={styles.input} value= {password} onChangeText={setpassword} placeholder="Password" placeholderTextColor="#ccc" secureTextEntry />
 
-      <TouchableOpacity style={styles.signupButton}>
+      <TouchableOpacity onPress={() => console.log(name,email,password)} style={styles.signupButton}>
         <Text style={styles.signupText}>Sign up</Text>
       </TouchableOpacity>
 
@@ -67,13 +70,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#26046d',
     paddingHorizontal: 30,
-    
+
   },
   backArrow: {
     fontSize: 24,
     color: 'white',
     marginBottom: 30,
-    marginTop:50
+    marginTop: 50
   },
   title: {
     color: 'white',
