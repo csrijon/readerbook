@@ -4,12 +4,12 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Search from '../components/Search';
 import Bottomnav from '../components/Bottomnav';
-const SearchScreen = () => {
+const SearchScreen = ({navigation}) => {
     const inset = useSafeAreaInsets()
     return (
         <SafeAreaView style={[styles.Container, { paddingTop: inset.top }]} >
             <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
-            <TouchableOpacity style={styles.backArrow} >
+            <TouchableOpacity onPress={()=> navigation.goBack()} style={styles.backArrow} >
                 <MaterialIcons name="arrow-back-ios" color="#000000" size={24} />
             </TouchableOpacity  >
 

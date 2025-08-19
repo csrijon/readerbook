@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity,StatusBar,Alert, StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity,StatusBar, StyleSheet, Image } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 

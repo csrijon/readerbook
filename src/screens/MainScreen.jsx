@@ -44,10 +44,11 @@ const MainScreen = () => {
         </TouchableOpacity>
       </View>
 
-      <ScrollView style={styles.scroll}>
+      <ScrollView style={styles.scroll} 
+      contentContainerStyle={{ paddingBottom: 80 }} >
         {/* Trending Books Section */}
         <Text style={styles.sectionTitle}>Trending Books</Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <ScrollView  horizontal showsHorizontalScrollIndicator={false}>
           {booksTrending.map((book) => (
             <View key={book.id} style={styles.bookCard}>
               <Image source={book.image} style={styles.bookImage} />
@@ -104,6 +105,7 @@ const styles = StyleSheet.create({
   },
   scroll: {
     paddingHorizontal: 16,
+    flex:1,
   },
   circles: {
     width: 40,

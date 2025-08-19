@@ -1,15 +1,17 @@
 import React from "react";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
+import { View, TouchableOpacity, StyleSheet} from "react-native";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+// import { useNavigation } from "@react-navigation/native";
 
 const Bottomnav = () => {
     const insets = useSafeAreaInsets();
+    // const navigation = useNavigation()
     return (
         <View style={[styles.bottomNavWrapper, { paddingBottom: insets.bottom }]}>
             <View style={styles.bottomNav}>
                 <TouchableOpacity><MaterialIcons name="house" color="#ffffff" size={24} /></TouchableOpacity>
-                <TouchableOpacity><MaterialIcons name="search" color="#ffffff" size={24} /></TouchableOpacity>
+                <TouchableOpacity  ><MaterialIcons name="search" color="#ffffff" size={24} /></TouchableOpacity>
                 <TouchableOpacity><MaterialIcons name="bookmark-border" color="#ffffff" size={24} /></TouchableOpacity>
             </View>
         </View>
