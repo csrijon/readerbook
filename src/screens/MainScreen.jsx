@@ -1,24 +1,16 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  StatusBar
-} from 'react-native';
+import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
 
 // Importing the hook to handle safe area (top notch, punch hole etc.)
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Bottomnav from '../components/Bottomnav';
+// import Bottomnav from '../components/Bottomnav';
 
 // Dummy data for books
 const booksTrending = [
   { id: 1, title: '7 Habits', image: require('../assets/image7.png') },
   { id: 2, title: 'Zero to One', image: require('../assets/image7.png') },
 ];
-
+// Dummy data for books
 const booksFavourites = [
   { id: 3, title: 'Think and Grow Rich', image: require('../assets/image7.png') },
   { id: 4, title: '365 Days', image: require('../assets/image7.png') },
@@ -34,21 +26,20 @@ const MainScreen = () => {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity  >
-          <Text style={styles.menuIcon}>☰</Text> {/* Menu icon */}
+          <Text style={styles.menuIcon}>☰</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>ReadLink</Text>
         <TouchableOpacity>
           <View style={styles.circles}>
-
           </View>
         </TouchableOpacity>
       </View>
 
-      <ScrollView style={styles.scroll} 
-      contentContainerStyle={{ paddingBottom: 80 }} >
+      <ScrollView style={styles.scroll}
+        contentContainerStyle={{ paddingBottom: 80 }} >
         {/* Trending Books Section */}
         <Text style={styles.sectionTitle}>Trending Books</Text>
-        <ScrollView  horizontal showsHorizontalScrollIndicator={false}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {booksTrending.map((book) => (
             <View key={book.id} style={styles.bookCard}>
               <Image source={book.image} style={styles.bookImage} />
@@ -56,7 +47,6 @@ const MainScreen = () => {
             </View>
           ))}
         </ScrollView>
-
         {/* Favourites Section */}
         <View style={styles.favHeader}>
           <Text style={styles.sectionTitle}>Your Favourites</Text>
@@ -91,7 +81,7 @@ const MainScreen = () => {
       </ScrollView>
 
       {/* Bottom Navigation */}
-      <Bottomnav />
+      {/* <Bottomnav /> */}
     </View>
   );
 };
@@ -105,7 +95,7 @@ const styles = StyleSheet.create({
   },
   scroll: {
     paddingHorizontal: 16,
-    flex:1,
+    flex: 1,
   },
   circles: {
     width: 40,

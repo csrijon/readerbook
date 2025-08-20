@@ -25,10 +25,9 @@ const SignInScreen = ({ navigation }) => {
     if (!usernames || !password) {
      Alert.alert('please put username and password')
     }else{
-      navigation.navigate('Home')
+      navigation.replace('Tabs')
     }
   }
-
 
   return (
     <>
