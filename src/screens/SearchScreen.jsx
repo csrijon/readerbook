@@ -3,17 +3,17 @@ import { SafeAreaView, StatusBar, StyleSheet, TouchableOpacity, View, Text, Scro
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Search from '../components/Search';
-const SearchScreen = ({navigation}) => {
+const SearchScreen = ({ navigation }) => {
     const inset = useSafeAreaInsets()
     return (
         <SafeAreaView style={[styles.Container, { paddingTop: inset.top }]} >
             <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
-            <TouchableOpacity onPress={()=> navigation.goBack()} style={styles.backArrow} >
+            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backArrow} >
                 <MaterialIcons name="arrow-back-ios" color="#000000" size={24} />
             </TouchableOpacity  >
 
             {/* Search Bar */}
-        
+
             <Search
                 placeholder="Search Here..."
 
@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
     },
     backArrow: {
         marginTop: 30,
-    
     },
     mainCategories: {
         marginTop: 30,

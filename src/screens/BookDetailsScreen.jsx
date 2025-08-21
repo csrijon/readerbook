@@ -11,10 +11,9 @@ import {
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Bottomnav from "../components/Bottomnav";
 
 
-const BookDetailsScreen = () => {
+const BookDetailsScreen = ({navigation}) => {
     const insets = useSafeAreaInsets()
     return (
         <View style={[styles.container,{paddingTop:insets.top}]}>
@@ -22,7 +21,7 @@ const BookDetailsScreen = () => {
             {/* Header */}
             <View style={styles.topSection}>
                 {/* Back Button */}
-                <TouchableOpacity style={styles.backButton}>
+                <TouchableOpacity onPress={()=>navigation.goBack()} style={styles.backButton}>
                     <MaterialIcons name="arrow-back-ios" size={22} color="#fff" />
                 </TouchableOpacity>
 
@@ -50,7 +49,7 @@ const BookDetailsScreen = () => {
                     <View style={styles.divider} />
 
                     {/* Listening */}
-                    <TouchableOpacity style={styles.tabButton}>
+                    <TouchableOpacity onPress={()=> navigation.navigate('Audio')} style={styles.tabButton}>
                         <Ionicons name="headset-outline" size={18} color="#fff" />
                         <Text style={styles.tabText}> Listening</Text>
                     </TouchableOpacity>
@@ -76,7 +75,6 @@ const BookDetailsScreen = () => {
             </ScrollView>
 
             {/* Bottom Navigation */}
-           <Bottomnav/>
         </View>
     );
 };

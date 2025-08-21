@@ -17,6 +17,8 @@ import SignUpScreen from './src/screens/SignUpScreen';
 import SignInScreen from './src/screens/SignInScreen';
 import SearchScreen from './src/screens/SearchScreen';
 import BookListScreen from './src/screens/BookListScreen';
+import BookDetailsScreen from './src/screens/BookDetailsScreen';
+import AudioBookPlayer from './src/screens/AudioBookPlayer';
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -29,7 +31,8 @@ const Stacks = () => {
       <Stack.Screen name="welcome" component={WelcomeScreen} />
       <Stack.Screen name="signup" component={SignUpScreen} />
       <Stack.Screen name='signin' component={SignInScreen} />
-      <Stack.Screen name='search' component={SearchScreen} />
+      <Stack.Screen name='Details' component={BookDetailsScreen} />
+      <Stack.Screen name= 'Audio'  component={AudioBookPlayer}/>
       <Stack.Screen name='Tabs' component={Tabs} />
     </Stack.Navigator>
   );
@@ -38,11 +41,11 @@ const Stacks = () => {
 const Tabs = () => {
   return (
     <Tab.Navigator initialRouteName='Home' screenOptions={{
-      headerShown: false, tabBarStyle: {
+      headerShown: false,
+      tabBarHideOnKeyboard:true,
+      tabBarStyle: {
         backgroundColor: '#4B2BAA',
-        position:'absolute',
-        // paddingTop:5,
-        // paddingBottom:5
+        position:'absolute'
       },
       tabBarActiveTintColor:'#ffffff',
       tabBarInactiveTintColor:'#9D83D2',

@@ -7,14 +7,14 @@ import {
   TouchableOpacity,
   ScrollView,
   Image,
-  StatusBar
+  StatusBar,
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Search from '../components/Search';
 
 
-export default function BookListScreen() {
+export default function BookListScreen({navigation}) {
   const inset = useSafeAreaInsets()
   return (
     <SafeAreaView style={[styles.container,{paddingTop:inset.top}]}>
@@ -32,7 +32,7 @@ export default function BookListScreen() {
       {/* Book List */}
       <ScrollView style = {styles.scroll} contentContainerStyle={{ paddingBottom: 20 }}>
         {books.map((book, index) => (
-          <View key={index} style={styles.bookCard}>
+          <View  key={index} style={styles.bookCard}>
             {/* Image */}
             <Image source={book.image} style={styles.bookImage} />
             {/* Info */}
@@ -41,7 +41,7 @@ export default function BookListScreen() {
               <Text style={styles.bookAuthor}>by {book.author}</Text>
 
               <View style={styles.actions}>
-                <TouchableOpacity style={styles.actionBtn}>
+                <TouchableOpacity onPress={()=> navigation.navigate('Details') } style={styles.actionBtn}>
                   <MaterialIcons name="menu-book" size={18} color="#ffffff" />
                   <Text style={styles.actionText}>Read</Text>
                 </TouchableOpacity>

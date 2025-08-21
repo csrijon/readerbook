@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Slider from "@react-native-community/slider";
 
 
-const AudioBookPlayer = () => {
+const AudioBookPlayer = ({navigation}) => {
     const insets = useSafeAreaInsets()
     return (
         <SafeAreaView style={[styles.container, { paddingTop: insets.top }]} >
@@ -13,7 +13,7 @@ const AudioBookPlayer = () => {
             {/* {Top Icon} */}
             <View style={styles.topcontainer} >
                 {/* {back-arrow-button} */}
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=> navigation.goBack()} >
                     <MaterialIcons name="arrow-back-ios" size={22} color="#000000" />
                 </TouchableOpacity>
                 {/* {Notification icon} */}
