@@ -2,6 +2,7 @@
 import React from 'react';
 // import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from "@react-navigation/native";
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -36,10 +37,41 @@ const Stacks = () => {
 
 const Tabs = () => {
   return (
-    <Tab.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }} >
-      <Tab.Screen name='Home' component={MainScreen} />
-      <Tab.Screen name='search' component={SearchScreen} />
-      <Tab.Screen name='Books' component={BookListScreen} />
+    <Tab.Navigator initialRouteName='Home' screenOptions={{
+      headerShown: false, tabBarStyle: {
+        backgroundColor: '#4B2BAA',
+        position:'absolute',
+        // paddingTop:5,
+        // paddingBottom:5
+      },
+      tabBarActiveTintColor:'#ffffff',
+      tabBarInactiveTintColor:'#9D83D2',
+      tabBarLabelStyle: {
+        fontSize: 12,
+      }
+    }} >
+      <Tab.Screen
+        name="Home"
+        component={MainScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="house" color={color} size={size} />
+          )
+        }}
+      />
+
+      <Tab.Screen name='search' component={SearchScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="search" color={color} size={size} />
+          )
+        }}
+      />
+      <Tab.Screen name='Books' component={BookListScreen} options={{
+        tabBarIcon: ({ color, size }) => (
+          <MaterialIcons name="bookmark-border" color={color} size={size} />
+        )
+      }} />
     </Tab.Navigator>
   )
 }

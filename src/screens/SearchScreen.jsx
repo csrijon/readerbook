@@ -3,7 +3,6 @@ import { SafeAreaView, StatusBar, StyleSheet, TouchableOpacity, View, Text, Scro
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Search from '../components/Search';
-import Bottomnav from '../components/Bottomnav';
 const SearchScreen = ({navigation}) => {
     const inset = useSafeAreaInsets()
     return (
@@ -63,7 +62,6 @@ const SearchScreen = ({navigation}) => {
                 </ScrollView>
             </View>
 
-            <Bottomnav />
 
         </SafeAreaView>
     )

@@ -12,7 +12,6 @@ import {
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Search from '../components/Search';
-import Bottomnav from '../components/Bottomnav';
 
 
 export default function BookListScreen() {
@@ -60,7 +59,6 @@ export default function BookListScreen() {
           </View>
         ))}
       </ScrollView>
-<Bottomnav/>
     </SafeAreaView>
   );
 }
