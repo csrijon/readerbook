@@ -41,7 +41,7 @@ export default function BookListScreen({navigation}) {
               <Text style={styles.bookAuthor}>by {book.author}</Text>
 
               <View style={styles.actions}>
-                <TouchableOpacity onPress={()=> navigation.navigate('Details') } style={styles.actionBtn}>
+                <TouchableOpacity onPress={()=> navigation.navigate('Details')} style={styles.actionBtn}>
                   <MaterialIcons name="menu-book" size={18} color="#ffffff" />
                   <Text style={styles.actionText}>Read</Text>
                 </TouchableOpacity>

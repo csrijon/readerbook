@@ -7,18 +7,14 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import MainScreen from './src/screens/MainScreen';
-// import SearchScreen from './src/screens/SearchScreen';
-// import BookListScreen from './src/screens/BookListScreen';
-// import BookDetailsScreen from './src/screens/BookDetailsScreen';
-// import AudioBookPlayer from './src/screens/AudioBookPlayer';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
-// import SignUpScreen from './src/screens/SignUpScreen';
 import SignInScreen from './src/screens/SignInScreen';
 import SearchScreen from './src/screens/SearchScreen';
 import BookListScreen from './src/screens/BookListScreen';
 import BookDetailsScreen from './src/screens/BookDetailsScreen';
 import AudioBookPlayer from './src/screens/AudioBookPlayer';
+import Prosetion from './src/screens/Prosection';
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -32,7 +28,7 @@ const Stacks = () => {
       <Stack.Screen name="signup" component={SignUpScreen} />
       <Stack.Screen name='signin' component={SignInScreen} />
       <Stack.Screen name='Details' component={BookDetailsScreen} />
-      <Stack.Screen name= 'Audio'  component={AudioBookPlayer}/>
+      <Stack.Screen name='Audio' component={AudioBookPlayer} />
       <Stack.Screen name='Tabs' component={Tabs} />
     </Stack.Navigator>
   );
@@ -42,13 +38,13 @@ const Tabs = () => {
   return (
     <Tab.Navigator initialRouteName='Home' screenOptions={{
       headerShown: false,
-      tabBarHideOnKeyboard:true,
+      tabBarHideOnKeyboard: true,
       tabBarStyle: {
         backgroundColor: '#4B2BAA',
-        position:'absolute'
+        position: 'absolute'
       },
-      tabBarActiveTintColor:'#ffffff',
-      tabBarInactiveTintColor:'#9D83D2',
+      tabBarActiveTintColor: '#ffffff',
+      tabBarInactiveTintColor: '#9D83D2',
       tabBarLabelStyle: {
         fontSize: 12,
       }
@@ -70,11 +66,18 @@ const Tabs = () => {
           )
         }}
       />
-      <Tab.Screen name='Books' component={BookListScreen} options={{
+      <Tab.Screen name='My Libary' component={BookListScreen} options={{
         tabBarIcon: ({ color, size }) => (
-          <MaterialIcons name="bookmark-border" color={color} size={size} />
+          <MaterialIcons name="person" color={color} size={size} />
         )
       }} />
+      <Tab.Screen name='Pro' component={Prosetion}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="workspace-premium" color={color} size={size} />
+          )
+        }}
+      />
     </Tab.Navigator>
   )
 }
