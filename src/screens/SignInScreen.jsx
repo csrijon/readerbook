@@ -110,7 +110,7 @@ const SignInScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#220052',
+    backgroundColor: '#23085A',
     paddingHorizontal: 30,
   },
   backButton: {

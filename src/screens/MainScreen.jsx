@@ -79,9 +79,6 @@ const MainScreen = () => {
         </ScrollView>
 
       </ScrollView>
-
-      {/* Bottom Navigation */}
-      {/* <Bottomnav /> */}
     </View>
   );
 };
@@ -105,7 +102,7 @@ const styles = StyleSheet.create({
   },
   header: {
     height: 60,
-    backgroundColor: '#4B2BAA',
+    backgroundColor: '#23085A',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -133,7 +130,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   bookCard: {
-    backgroundColor: '#E7DFFF',
+    backgroundColor: '#9D83D2',
     borderRadius: 20,
     marginRight: 12,
     padding: 10,
@@ -156,7 +153,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   viewAll: {
-    color: '#6A00FF',
+    color: '#000000',
     fontWeight: '500',
   },
   navItem: {

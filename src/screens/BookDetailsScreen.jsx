@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
     topSection: {
-        backgroundColor: "#6C3EB4",
+        backgroundColor: "#6D4BB4",
         paddingTop: 70,
         paddingHorizontal: 16,
         alignItems: "center",

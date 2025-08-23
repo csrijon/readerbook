@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         gap: 10,
     },
     categoryItem: {
-        backgroundColor: '#EDE0FF',
+        backgroundColor: '#EADDFF',
         borderRadius: 8,
         paddingVertical: 6,
         paddingHorizontal: 12,

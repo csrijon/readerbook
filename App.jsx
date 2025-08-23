@@ -40,7 +40,7 @@ const Tabs = () => {
       headerShown: false,
       tabBarHideOnKeyboard: true,
       tabBarStyle: {
-        backgroundColor: '#4B2BAA',
+        backgroundColor: '#23085A',
         position: 'absolute'
       },
       tabBarActiveTintColor: '#ffffff',

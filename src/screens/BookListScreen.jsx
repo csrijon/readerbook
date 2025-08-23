@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   bookCard: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    backgroundColor: '#a67df7',
+    backgroundColor: '#9D83D2',
     marginHorizontal: 15,
     marginTop: 12,
     borderRadius: 10,

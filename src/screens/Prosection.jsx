@@ -1,77 +1,87 @@
 import React from "react";
 import {
-    View,
-    Text,
-    StyleSheet,
-    TouchableOpacity,
-    ScrollView,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import LinearGradient from "react-native-linear-gradient";
+
 const Prosetion = () => {
-    const insets = useSafeAreaInsets()
-    return (
-        <ScrollView style={[styles.container,{paddingTop: insets.top}]} contentContainerStyle={{ alignItems: "center" }}>
-            {/* Close + Restore Buttons */}
-            <View style={styles.topRow}>
-                <TouchableOpacity style={styles.closeBtn}>
-                    <MaterialIcons name="close" size={24} color="#000" />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.restoreBtn}>
-                    <Text style={styles.restoreText}>Restore</Text>
-                </TouchableOpacity>
-            </View>
+  const insets = useSafeAreaInsets();
+  return (
+    <ScrollView
+      style={[styles.container, { paddingTop: insets.top }]}
+      contentContainerStyle={{ alignItems: "center" }}
+    >
+      {/* Close + Restore Buttons */}
+      <View style={styles.topRow}>
+        <TouchableOpacity style={styles.closeBtn}>
+          <MaterialIcons name="close" size={24} color="#000" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.restoreBtn}>
+          <Text style={styles.restoreText}>Restore</Text>
+        </TouchableOpacity>
+      </View>
 
-            {/* Title */}
-            <Text style={styles.title}>Unlimited Access</Text>
-            <Text style={styles.subtitle}>
-                Access the most advanced AI research assistant
-            </Text>
+      {/* Title */}
+      <Text style={styles.title}>Unlimited Access</Text>
+      <Text style={styles.subtitle}>
+        Access the most advanced Books For Reading
+      </Text>
 
-            {/* Features */}
-            <View style={styles.featureList}>
-                {[
-                    "Ads Free!",
-                    "Unlimited AI Generations",
-                    "Unlimited Pro Sketches",
-                    "Cloud Storage for Your Projects",
-                ].map((item, index) => (
-                    <View key={index} style={styles.featureItem}>
-                        <MaterialIcons name="check-box" size={22} color="#00BFFF" />
-                        <Text style={styles.featureText}>{item}</Text>
-                    </View>
-                ))}
-            </View>
+      {/* Features */}
+      <View style={styles.featureList}>
+        {[
+          "Ads Free!",
+          "Unlimited AI Generations",
+          "Unlimited Pro Sketches",
+          "You Can Download Books",
+        ].map((item, index) => (
+          <View key={index} style={styles.featureItem}>
+            <MaterialIcons name="check-box" size={22} color="#9D83D2" />
+            <Text style={styles.featureText}>{item}</Text>
+          </View>
+        ))}
+      </View>
 
-            {/* Silver Plan Card */}
-            <View style={styles.card}>
-                <Text style={styles.planTitle}>Silver</Text>
-                <Text style={styles.planPrice}>Rs:- 149/-</Text>
-                <Text style={styles.planSubtitle}>Pro benefits</Text>
+      {/* Silver Plan Card */}
+      <LinearGradient
+        colors={["#BCC6CC", "#E0E0E0"]}
+        style={styles.card}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      >
+        <Text style={styles.planTitle}>Silver</Text>
+        <Text style={styles.planPrice}>Rs:- 149/-</Text>
+        <Text style={styles.planSubtitle}>Pro benefits</Text>
 
-                <View style={styles.benefitItem}>
-                    <MaterialIcons name="check" size={20} color="#00BFFF" />
-                    <Text style={styles.benefitText}>Listing And Reading</Text>
-                </View>
-                <View style={styles.benefitItem}>
-                    <MaterialIcons name="check" size={20} color="#00BFFF" />
-                    <Text style={styles.benefitText}>Ad Free</Text>
-                </View>
+        <View style={styles.benefitItem}>
+          <MaterialIcons name="check" size={20} color="#4A4A4A" />
+          <Text style={styles.benefitText}>Listing And Reading</Text>
+        </View>
+        <View style={styles.benefitItem}>
+          <MaterialIcons name="check" size={20} color="#4A4A4A" />
+          <Text style={styles.benefitText}>Ad Free</Text>
+        </View>
 
-                <TouchableOpacity style={styles.upgradeBtn}>
-                    <Text style={styles.upgradeText}>Upgrade Now {">"}</Text>
-                </TouchableOpacity>
-            </View>
+        <TouchableOpacity style={styles.upgradeBtn}>
+          <Text style={styles.upgradeText}>Upgrade Now {">"}</Text>
+        </TouchableOpacity>
+      </LinearGradient>
 
-            {/* View More Packs */}
-            <TouchableOpacity style={styles.moreBtn}>
-                <Text style={styles.moreText}>View More Packs {">"}</Text>
-            </TouchableOpacity>
-        </ScrollView>
-    )
-}
+      {/* View More Packs */}
+      <TouchableOpacity style={styles.moreBtn}>
+        <Text style={styles.moreText}>View More Packs {">"}</Text>
+      </TouchableOpacity>
+    </ScrollView>
+  );
+};
 
-export default Prosetion
+export default Prosetion;
 
 const styles = StyleSheet.create({
   container: {
@@ -89,17 +99,21 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   restoreBtn: {
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#9D83D2",
     paddingHorizontal: 15,
     paddingVertical: 6,
     borderRadius: 20,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 3,
   },
   restoreText: {
     color: "#fff",
     fontWeight: "600",
   },
   title: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: "bold",
     marginTop: 20,
     textAlign: "center",
@@ -128,25 +142,28 @@ const styles = StyleSheet.create({
   },
   card: {
     width: "85%",
-    backgroundColor: "#A78BFA",
-    borderRadius: 15,
+    borderRadius: 22,
     padding: 20,
     marginTop: 20,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 5,
   },
   planTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "700",
-    color: "#fff",
+    color: "#333",
   },
   planPrice: {
     fontSize: 16,
-    color: "#fff",
+    color: "#444",
     marginTop: 4,
   },
   planSubtitle: {
     marginTop: 10,
     fontWeight: "600",
-    color: "#fff",
+    color: "#333",
   },
   benefitItem: {
     flexDirection: "row",
@@ -155,14 +172,18 @@ const styles = StyleSheet.create({
   },
   benefitText: {
     marginLeft: 8,
-    color: "#fff",
+    color: "#333",
   },
   upgradeBtn: {
-    backgroundColor: "#00BFFF",
-    paddingVertical: 12,
-    borderRadius: 25,
+    backgroundColor: "#9D83D2",
+    paddingVertical: 14,
+    borderRadius: 28,
     alignItems: "center",
     marginTop: 20,
+    shadowColor: "#000",
+    shadowOpacity: 0.15,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 4,
   },
   upgradeText: {
     color: "#fff",
@@ -170,13 +191,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   moreBtn: {
-    backgroundColor: "#00BFFF",
-    paddingVertical: 14,
+    backgroundColor: "#9D83D2",
+    paddingVertical: 16,
     borderRadius: 30,
     alignItems: "center",
     width: "85%",
     marginTop: 30,
     marginBottom: 50,
+    shadowColor: "#000",
+    shadowOpacity: 0.15,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 4,
   },
   moreText: {
     color: "#fff",

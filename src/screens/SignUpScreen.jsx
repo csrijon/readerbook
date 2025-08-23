@@ -28,7 +28,7 @@ const SignUpScreen = ({ navigation }) => {
         }
       ]}
     >
-      <StatusBar translucent backgroundColor="#26046d" barStyle="light-content" />
+      <StatusBar translucent backgroundColor="#23085A" barStyle="light-content" />
       <TouchableOpacity style={styles.backArrow}
         onPress={() => navigation.goBack()}
       >
@@ -76,7 +76,7 @@ export default SignUpScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#26046d',
+    backgroundColor: '#23085A',
     paddingHorizontal: 30,
 
   },
