@@ -15,6 +15,7 @@ import BookListScreen from './src/screens/BookListScreen';
 import BookDetailsScreen from './src/screens/BookDetailsScreen';
 import AudioBookPlayer from './src/screens/AudioBookPlayer';
 import Prosetion from './src/screens/Prosection';
+import Morepro from './src/screens/Morepro';
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -29,6 +30,7 @@ const Stacks = () => {
       <Stack.Screen name='signin' component={SignInScreen} />
       <Stack.Screen name='Details' component={BookDetailsScreen} />
       <Stack.Screen name='Audio' component={AudioBookPlayer} />
+      <Stack.Screen name = 'Upgrade' component={Morepro}/>
       <Stack.Screen name='Tabs' component={Tabs} />
     </Stack.Navigator>
   );

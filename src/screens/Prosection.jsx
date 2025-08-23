@@ -10,7 +10,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import LinearGradient from "react-native-linear-gradient";
 
-const Prosetion = () => {
+const Prosetion = ({navigation}) => {
   const insets = useSafeAreaInsets();
   return (
     <ScrollView
@@ -19,7 +19,7 @@ const Prosetion = () => {
     >
       {/* Close + Restore Buttons */}
       <View style={styles.topRow}>
-        <TouchableOpacity style={styles.closeBtn}>
+        <TouchableOpacity onPress={()=> navigation.goBack() } style={styles.closeBtn}>
           <MaterialIcons name="close" size={24} color="#000" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.restoreBtn}>
@@ -74,7 +74,7 @@ const Prosetion = () => {
       </LinearGradient>
 
       {/* View More Packs */}
-      <TouchableOpacity style={styles.moreBtn}>
+      <TouchableOpacity onPress={()=> navigation.navigate('Upgrade')} style={styles.moreBtn}>
         <Text style={styles.moreText}>View More Packs {">"}</Text>
       </TouchableOpacity>
     </ScrollView>
