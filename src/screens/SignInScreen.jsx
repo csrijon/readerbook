@@ -6,37 +6,30 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
-  // Platform,
   StatusBar,
   Alert,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import LinearGradient from 'react-native-linear-gradient';
 
 const SignInScreen = ({ navigation }) => {
-
-  const [usernames, setusernames] = useState('')
-  const [password, setpassword] = useState('')
-
+  const [usernames, setusernames] = useState('');
+  const [password, setpassword] = useState('');
   const insets = useSafeAreaInsets();
-
 
   const signinbutton = () => {
     if (!usernames || !password) {
-     Alert.alert('please put username and password')
-    }else{
-      navigation.replace('Tabs')
+      Alert.alert('please put username and password');
+    } else {
+      navigation.replace('Tabs');
     }
-  }
+  };
 
   return (
     <>
-      {/* Make StatusBar transparent & overlay content */}
-      <StatusBar
-        translucent
-        backgroundColor="transparent"
-        barStyle="light-content"
-      />
+      {/* Transparent StatusBar */}
+      <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
 
       <SafeAreaView
         style={[
@@ -48,7 +41,7 @@ const SignInScreen = ({ navigation }) => {
       >
         {/* Back Arrow */}
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <MaterialIcons style name="arrow-back-ios" size={22} color="#fff" />
+          <MaterialIcons name="arrow-back-ios" size={22} color="#fff" />
         </TouchableOpacity>
 
         {/* Sign In Title */}
@@ -73,9 +66,16 @@ const SignInScreen = ({ navigation }) => {
           onChangeText={setpassword}
         />
 
-        {/* Sign Up Button */}
-        <TouchableOpacity onPress={signinbutton} style={styles.button}>
-          <Text style={styles.buttonText}>Sign up</Text>
+        {/* Sign In Button with Gradient */}
+        <TouchableOpacity onPress={signinbutton} style={{ marginTop: 10, marginBottom: 30 }}>
+          <LinearGradient
+            colors={["#5B18D5", "#2307DA"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>Sign in</Text>
+          </LinearGradient>
         </TouchableOpacity>
 
         {/* OR Sign In With */}
@@ -84,22 +84,13 @@ const SignInScreen = ({ navigation }) => {
         {/* Social Icons */}
         <View style={styles.socialContainer}>
           <View style={styles.iconWrapper}>
-            <Image
-              source={require('../assets/Google_logo.png')}
-              style={styles.socialIcon}
-            />
+            <Image source={require('../assets/Google_logo.png')} style={styles.socialIcon} />
           </View>
           <View style={styles.iconWrapper}>
-            <Image
-              source={require('../assets/f.png')}
-              style={styles.socialIcon}
-            />
+            <Image source={require('../assets/f.png')} style={styles.socialIcon} />
           </View>
           <View style={styles.iconWrapper}>
-            <Image
-              source={require('../assets/Apple_logo.png')}
-              style={styles.socialIcon}
-            />
+            <Image source={require('../assets/Apple_logo.png')} style={styles.socialIcon} />
           </View>
         </View>
       </SafeAreaView>
@@ -110,12 +101,12 @@ const SignInScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#23085A',
+    backgroundColor: '#000000',
     paddingHorizontal: 30,
   },
   backButton: {
     marginBottom: 30,
-    marginTop: 50
+    marginTop: 50,
   },
   title: {
     color: '#fff',
@@ -131,13 +122,15 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    backgroundColor: '#b58de6',
     borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 15,
-    marginTop: 10,
-    marginBottom: 30,
+    elevation: 6,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
   },
   buttonText: {
     color: '#fff',

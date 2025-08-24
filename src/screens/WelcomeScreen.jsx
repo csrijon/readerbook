@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, TouchableOpacity,StatusBar, StyleSheet, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StatusBar, StyleSheet, Image } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import LinearGradient from 'react-native-linear-gradient';
 
-
-const WelcomeScreen = ({navigation}) => {
-  const insets = useSafeAreaInsets(); 
+const WelcomeScreen = ({ navigation }) => {
+  const insets = useSafeAreaInsets();
 
   return (
     <SafeAreaView
@@ -13,7 +13,8 @@ const WelcomeScreen = ({navigation}) => {
         { paddingTop: insets.top, paddingBottom: insets.bottom }
       ]}
     >
-       <StatusBar translucent backgroundColor="#23085A" barStyle="light-content" />
+      <StatusBar translucent backgroundColor="#000000" barStyle="light-content" />
+
       {/* Logo and Title */}
       <View style={styles.logoContainer}>
         <Image source={require('../assets/Vector.png')} style={styles.logo} />
@@ -22,14 +23,26 @@ const WelcomeScreen = ({navigation}) => {
 
       {/* Buttons */}
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}
-        onPress={()=> navigation.navigate("signup") }
-        >
-          <Text style={styles.buttonText}>Get Started</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("signup")}>
+          <LinearGradient
+            colors={["#5B18D5", "#2307DA"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>Get Started</Text>
+          </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>I have an account</Text>
+        <TouchableOpacity>
+          <LinearGradient
+            colors={["#5B18D5", "#2307DA"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>I have an account</Text>
+          </LinearGradient>
         </TouchableOpacity>
       </View>
 
@@ -52,13 +65,13 @@ const WelcomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#23085A',
+    backgroundColor: '#000000',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   logoContainer: {
     alignItems: 'center',
-    marginTop: 80, 
+    marginTop: 80,
   },
   logo: {
     width: 80,
@@ -76,12 +89,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   button: {
-    backgroundColor: '#5B18D5',
     borderRadius: 30,
     paddingVertical: 15,
     marginVertical: 10,
     alignItems: 'center',
-    elevation: 5,
+    elevation: 6,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
   },
   buttonText: {
     color: '#fff',

@@ -1,11 +1,10 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, SafeAreaView, StatusBar, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-
+import LinearGradient from 'react-native-linear-gradient';
 
 const SignUpScreen = ({ navigation }) => {
-
   const [email, setemail] = useState('')
   const [name, setname] = useState('')
   const [password, setpassword] = useState('')
@@ -28,43 +27,46 @@ const SignUpScreen = ({ navigation }) => {
         }
       ]}
     >
-      <StatusBar translucent backgroundColor="#23085A" barStyle="light-content" />
-      <TouchableOpacity style={styles.backArrow}
-        onPress={() => navigation.goBack()}
-      >
+      <StatusBar translucent backgroundColor="#000000" barStyle="light-content" />
+      
+      {/* Back Arrow */}
+      <TouchableOpacity style={styles.backArrow} onPress={() => navigation.goBack()}>
         <MaterialIcons name="arrow-back-ios" size={22} color="#fff" />
       </TouchableOpacity>
 
+      {/* Title */}
       <Text style={styles.title}>Create New Account</Text>
 
+      {/* Input Fields */}
       <TextInput style={styles.input} value={name} onChangeText={setname} placeholder="Full name" placeholderTextColor="#ccc" />
       <TextInput style={styles.input} value={email} onChangeText={setemail} placeholder="Email" placeholderTextColor="#ccc" keyboardType="email-address" />
       <TextInput style={styles.input} value={password} onChangeText={setpassword} placeholder="Password" placeholderTextColor="#ccc" secureTextEntry />
 
-      <TouchableOpacity onPress={signuppress} style={styles.signupButton}>
-        <Text style={styles.signupText}>Sign up</Text>
+      {/* Sign Up Button */}
+      <TouchableOpacity onPress={signuppress} style={{ marginTop: 20 }}>
+        <LinearGradient
+          colors={["#5B18D5", "#2307DA"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={styles.signupButton}
+        >
+          <Text style={styles.signupText}>Sign up</Text>
+        </LinearGradient>
       </TouchableOpacity>
 
+      {/* Or Sign In With */}
       <Text style={styles.signinText}>or Sign In with</Text>
 
+      {/* Social Buttons */}
       <View style={styles.socialContainer}>
         <View style={styles.iconWrapper}>
-          <Image
-            source={require('../assets/Google_logo.png')}
-            style={styles.socialIcon}
-          />
+          <Image source={require('../assets/Google_logo.png')} style={styles.socialIcon} />
         </View>
         <View style={styles.iconWrapper}>
-          <Image
-            source={require('../assets/f.png')}
-            style={styles.socialIcon}
-          />
+          <Image source={require('../assets/f.png')} style={styles.socialIcon} />
         </View>
         <View style={styles.iconWrapper}>
-          <Image
-            source={require('../assets/Apple_logo.png')}
-            style={styles.socialIcon}
-          />
+          <Image source={require('../assets/Apple_logo.png')} style={styles.socialIcon} />
         </View>
       </View>
     </SafeAreaView>
@@ -76,13 +78,10 @@ export default SignUpScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#23085A',
+    backgroundColor: '#000000',
     paddingHorizontal: 30,
-
   },
   backArrow: {
-    fontSize: 24,
-    color: 'white',
     marginBottom: 30,
     marginTop: 50
   },
@@ -100,11 +99,14 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   signupButton: {
-    backgroundColor: '#ae84e4',
-    paddingVertical: 15,
     borderRadius: 30,
+    paddingVertical: 15,
     alignItems: 'center',
-    marginTop: 20,
+    elevation: 6,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
   },
   signupText: {
     color: 'white',

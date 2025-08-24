@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 // Importing the hook to handle safe area (top notch, punch hole etc.)
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -9,10 +10,12 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const booksTrending = [
   { id: 1, title: '7 Habits', image: require('../assets/image7.png') },
   { id: 2, title: 'Zero to One', image: require('../assets/image7.png') },
+  { id: 4, title: '365 Days', image: require('../assets/image7.png') },
 ];
 // Dummy data for books
 const booksFavourites = [
   { id: 3, title: 'Think and Grow Rich', image: require('../assets/image7.png') },
+  { id: 4, title: '365 Days', image: require('../assets/image7.png') },
   { id: 4, title: '365 Days', image: require('../assets/image7.png') },
 ];
 
@@ -22,13 +25,13 @@ const MainScreen = () => {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+      <StatusBar translucent backgroundColor="transparent" barStyle="Light-content" />
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity  >
-          <Text style={styles.menuIcon}>☰</Text>
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>ReadLink</Text>
+        
+<TouchableOpacity>
+  <MaterialIcons name="format-align-left" size={28} color="#66B2FF" />
+</TouchableOpacity>
         <TouchableOpacity>
           <View style={styles.circles}>
           </View>
@@ -88,7 +91,7 @@ export default MainScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000000',
   },
   scroll: {
     paddingHorizontal: 16,
@@ -101,15 +104,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   header: {
-    height: 60,
-    backgroundColor: '#23085A',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    borderBottomWidth: 2,
-    borderBottomColor: "#ccc",
-  },
+  height: 60,
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  paddingHorizontal: 16,
+  borderBottomWidth: 1,   
+  borderBottomColor: "rgba(241, 239, 239, 0.1)", 
+  shadowColor: "#000",
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.05,   
+  shadowRadius: 3,
+  elevation: 2,          
+  borderRadius: 12,      
+},
+
   headerTitle: {
     color: '#fff',
     fontSize: 20,
@@ -125,20 +134,21 @@ const styles = StyleSheet.create({
     tintColor: '#fff',
   },
   sectionTitle: {
+    color:'white',
     fontSize: 18,
     fontWeight: '600',
     marginVertical: 10,
   },
   bookCard: {
-    backgroundColor: '#9D83D2',
+    backgroundColor: 'rgba(168,161,161,0.15)',
     borderRadius: 20,
     marginRight: 12,
-    padding: 10,
+    padding: 20,
     alignItems: 'center',
   },
   bookImage: {
-    width: 154,
-    height: 205,
+    width: 99,
+    height: 157,
     resizeMode: 'cover',
     borderRadius: 10,
   },
@@ -153,18 +163,11 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   viewAll: {
-    color: '#000000',
+    color: '#ffffff',
     fontWeight: '500',
   },
   navItem: {
     color: '#fff',
     fontWeight: '500',
   },
-  bottomNavWrapper: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#4B2BAA'
-  }
 });

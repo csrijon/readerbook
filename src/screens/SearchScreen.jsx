@@ -72,7 +72,7 @@ export default SearchScreen;
 const styles = StyleSheet.create({
     Container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#',
         paddingHorizontal: 16,
     },
     backArrow: {

@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+// import { BlurView } from '@react-native-community/blur';
 import MainScreen from './src/screens/MainScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
@@ -42,11 +42,14 @@ const Tabs = () => {
       headerShown: false,
       tabBarHideOnKeyboard: true,
       tabBarStyle: {
-        backgroundColor: '#23085A',
-        position: 'absolute'
+        backgroundColor: 'rgba(16,14,14,100)',
+        position: 'absolute',
+        borderTopLeftRadius:22,
+        borderTopRightRadius:22,
+        borderColor:'tansparent',
       },
       tabBarActiveTintColor: '#ffffff',
-      tabBarInactiveTintColor: '#9D83D2',
+      tabBarInactiveTintColor: '#66B2FF',
       tabBarLabelStyle: {
         fontSize: 12,
       }

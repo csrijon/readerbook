@@ -18,10 +18,10 @@ export default function BookListScreen({navigation}) {
   const inset = useSafeAreaInsets()
   return (
     <SafeAreaView style={[styles.container,{paddingTop:inset.top}]}>
-       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+       <StatusBar translucent backgroundColor="transparent" barStyle="Light-content" />
       {/* Back Button */}
       <TouchableOpacity style={styles.backBtn}>
-        <MaterialIcons name="arrow-back-ios" color="#000000" size={24} />
+        <MaterialIcons name="arrow-back-ios" color="#66B2FF" size={24} />
       </TouchableOpacity>
 
       {/* Search Bar */}
@@ -42,11 +42,11 @@ export default function BookListScreen({navigation}) {
 
               <View style={styles.actions}>
                 <TouchableOpacity onPress={()=> navigation.navigate('Details')} style={styles.actionBtn}>
-                  <MaterialIcons name="menu-book" size={18} color="#ffffff" />
+                  <MaterialIcons name="menu-book" size={18} color="#66B2FF" />
                   <Text style={styles.actionText}>Read</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.actionBtn}>
-                  <MaterialIcons name="play-circle" size={18} color="#ffffff" />
+                  <MaterialIcons name="play-circle" size={18} color="#66B2FF" />
                   <Text style={styles.actionText}>Play</Text>
                 </TouchableOpacity>
               </View>
@@ -54,7 +54,7 @@ export default function BookListScreen({navigation}) {
 
             {/* Download Icon */}
             <TouchableOpacity>
-              <MaterialIcons name="file-download" size={22} color="#ffffff" />
+              <MaterialIcons name="file-download" size={22} color="#66B2FF" />
             </TouchableOpacity>
           </View>
         ))}
@@ -66,7 +66,7 @@ export default function BookListScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000000',
   },
   Search:{
     paddingHorizontal:16
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   bookCard: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    backgroundColor: '#9D83D2',
+    backgroundColor: 'rgba(168,161,161,0.15)',
     marginHorizontal: 15,
     marginTop: 12,
     borderRadius: 10,
