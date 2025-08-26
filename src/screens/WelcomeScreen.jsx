@@ -13,7 +13,7 @@ const WelcomeScreen = ({ navigation }) => {
         { paddingTop: insets.top, paddingBottom: insets.bottom }
       ]}
     >
-      <StatusBar translucent backgroundColor="#000000" barStyle="light-content" />
+      <StatusBar translucent backgroundColor="#0f1214" barStyle="light-content" />
 
       {/* Logo and Title */}
       <View style={styles.logoContainer}>
@@ -23,26 +23,15 @@ const WelcomeScreen = ({ navigation }) => {
 
       {/* Buttons */}
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate("signup")}>
-          <LinearGradient
-            colors={["#5B18D5", "#2307DA"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.button}
-          >
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("signup")}>
+         
             <Text style={styles.buttonText}>Get Started</Text>
-          </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <LinearGradient
-            colors={["#5B18D5", "#2307DA"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.button}
-          >
+        <TouchableOpacity style={styles.button} >
+          
             <Text style={styles.buttonText}>I have an account</Text>
-          </LinearGradient>
+         
         </TouchableOpacity>
       </View>
 
@@ -65,7 +54,7 @@ const WelcomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: '#0f1214',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -98,6 +87,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.25,
     shadowRadius: 5,
+    backgroundColor:'#0073e6'
   },
   buttonText: {
     color: '#fff',

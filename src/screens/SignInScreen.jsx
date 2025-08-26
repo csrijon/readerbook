@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import LinearGradient from 'react-native-linear-gradient';
+
 
 const SignInScreen = ({ navigation }) => {
   const [usernames, setusernames] = useState('');
@@ -29,7 +29,7 @@ const SignInScreen = ({ navigation }) => {
   return (
     <>
       {/* Transparent StatusBar */}
-      <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
+      <StatusBar translucent backgroundColor="#0f1214" barStyle="light-content" />
 
       <SafeAreaView
         style={[
@@ -67,15 +67,10 @@ const SignInScreen = ({ navigation }) => {
         />
 
         {/* Sign In Button with Gradient */}
-        <TouchableOpacity onPress={signinbutton} style={{ marginTop: 10, marginBottom: 30 }}>
-          <LinearGradient
-            colors={["#5B18D5", "#2307DA"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.button}
-          >
-            <Text style={styles.buttonText}>Sign in</Text>
-          </LinearGradient>
+        <TouchableOpacity style={styles.button} onPress={signinbutton} >
+
+          <Text style={styles.buttonText}>Sign in</Text>
+
         </TouchableOpacity>
 
         {/* OR Sign In With */}
@@ -101,7 +96,7 @@ const SignInScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: '#0f1214',
     paddingHorizontal: 30,
   },
   backButton: {
@@ -131,6 +126,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.25,
     shadowRadius: 5,
+    backgroundColor: '#0073e6',
+    marginTop: 10, marginBottom: 30
   },
   buttonText: {
     color: '#fff',

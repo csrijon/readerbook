@@ -42,11 +42,11 @@ export default function BookListScreen({navigation}) {
 
               <View style={styles.actions}>
                 <TouchableOpacity onPress={()=> navigation.navigate('Details')} style={styles.actionBtn}>
-                  <MaterialIcons name="menu-book" size={18} color="#66B2FF" />
+                  <MaterialIcons name="menu-book" size={18} color="#66b2ff" />
                   <Text style={styles.actionText}>Read</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.actionBtn}>
-                  <MaterialIcons name="play-circle" size={18} color="#66B2FF" />
+                  <MaterialIcons name="play-circle" size={18} color="#66b2ff" />
                   <Text style={styles.actionText}>Play</Text>
                 </TouchableOpacity>
               </View>
@@ -54,7 +54,7 @@ export default function BookListScreen({navigation}) {
 
             {/* Download Icon */}
             <TouchableOpacity>
-              <MaterialIcons name="file-download" size={22} color="#66B2FF" />
+              <MaterialIcons name="file-download" size={22} color="#66b2ff" />
             </TouchableOpacity>
           </View>
         ))}
@@ -66,7 +66,7 @@ export default function BookListScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: '#0f1114',
   },
   Search:{
     paddingHorizontal:16
@@ -81,11 +81,16 @@ const styles = StyleSheet.create({
   bookCard: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    backgroundColor: 'rgba(168,161,161,0.15)',
+    backgroundColor: '#14171acc',
     marginHorizontal: 15,
     marginTop: 12,
-    borderRadius: 10,
+    borderRadius: 16,
     padding: 10,
+    borderTopWidth:1,
+    borderLeftWidth:1,
+    borderRightWidth:1,
+    borderBottomWidth:1,
+    borderColor:'#3d47514d'
   },
   bookImage: {
     width: 50,
@@ -99,7 +104,7 @@ const styles = StyleSheet.create({
   },
   bookAuthor: {
     fontSize: 12,
-    color: '#e6d6ff',
+    color: '#b6bec9',
     marginBottom: 8,
   },
   actions: {
@@ -114,7 +119,7 @@ const styles = StyleSheet.create({
   actionText: {
     marginLeft: 4,
     fontSize: 12,
-    color: '#fff',
+    color: '#b6bec9',
   },
 });
 const books = [

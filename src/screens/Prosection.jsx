@@ -8,9 +8,8 @@ import {
 } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import LinearGradient from "react-native-linear-gradient";
 
-const Prosetion = ({navigation}) => {
+const Prosetion = ({ navigation }) => {
   const insets = useSafeAreaInsets();
   return (
     <ScrollView
@@ -19,8 +18,8 @@ const Prosetion = ({navigation}) => {
     >
       {/* Close + Restore Buttons */}
       <View style={styles.topRow}>
-        <TouchableOpacity onPress={()=> navigation.goBack() } style={styles.closeBtn}>
-          <MaterialIcons name="close" size={24} color="#000" />
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.closeBtn}>
+          <MaterialIcons name="close" size={24} color="#ffffff" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.restoreBtn}>
           <Text style={styles.restoreText}>Restore</Text>
@@ -42,39 +41,34 @@ const Prosetion = ({navigation}) => {
           "You Can Download Books",
         ].map((item, index) => (
           <View key={index} style={styles.featureItem}>
-            <MaterialIcons name="check-box" size={22} color="#9D83D2" />
+            <MaterialIcons name="check-box" size={22} color="#66b2ff" />
             <Text style={styles.featureText}>{item}</Text>
           </View>
         ))}
-      </View>
+      </View  >
 
       {/* Silver Plan Card */}
-      <LinearGradient
-        colors={["#BCC6CC", "#E0E0E0"]}
-        style={styles.card}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-      >
+      <View style={styles.card} >
         <Text style={styles.planTitle}>Silver</Text>
         <Text style={styles.planPrice}>Rs:- 149/-</Text>
         <Text style={styles.planSubtitle}>Pro benefits</Text>
 
         <View style={styles.benefitItem}>
-          <MaterialIcons name="check" size={20} color="#4A4A4A" />
+          <MaterialIcons name="check" size={20} color="#66b2ff" />
           <Text style={styles.benefitText}>Listing And Reading</Text>
         </View>
         <View style={styles.benefitItem}>
-          <MaterialIcons name="check" size={20} color="#4A4A4A" />
+          <MaterialIcons name="check" size={20} color="#66b2ff" />
           <Text style={styles.benefitText}>Ad Free</Text>
         </View>
 
         <TouchableOpacity style={styles.upgradeBtn}>
           <Text style={styles.upgradeText}>Upgrade Now {">"}</Text>
         </TouchableOpacity>
-      </LinearGradient>
+      </View>
 
       {/* View More Packs */}
-      <TouchableOpacity onPress={()=> navigation.navigate('Upgrade')} style={styles.moreBtn}>
+      <TouchableOpacity onPress={() => navigation.navigate('Upgrade')} style={styles.moreBtn}>
         <Text style={styles.moreText}>View More Packs {">"}</Text>
       </TouchableOpacity>
     </ScrollView>
@@ -86,7 +80,8 @@ export default Prosetion;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#0f1214",
+    color: 'white',
   },
   topRow: {
     width: "100%",
@@ -99,7 +94,6 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   restoreBtn: {
-    backgroundColor: "#9D83D2",
     paddingHorizontal: 15,
     paddingVertical: 6,
     borderRadius: 20,
@@ -107,9 +101,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 2 },
     elevation: 3,
+    borderTopWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: 'rgba(102, 179, 255, 0.2)'
   },
   restoreText: {
-    color: "#fff",
+    color: '#66b2ff',
     fontWeight: "600",
   },
   title: {
@@ -117,13 +116,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 20,
     textAlign: "center",
-    color: "#000",
+    color: "white",
   },
   subtitle: {
     fontSize: 14,
     textAlign: "center",
     marginTop: 5,
-    color: "#555",
+    color: "#b6bec9",
     paddingHorizontal: 30,
   },
   featureList: {
@@ -138,32 +137,38 @@ const styles = StyleSheet.create({
   featureText: {
     fontSize: 15,
     marginLeft: 10,
-    color: "#333",
+    color: "#b6bec9",
   },
   card: {
     width: "85%",
     borderRadius: 22,
     padding: 20,
     marginTop: 20,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 5,
+    // shadowColor: "#000",
+    // shadowOpacity: 0.1,
+    // shadowOffset: { width: 0, height: 4 },
+    backgroundColor: '#0d1924',
+    // elevation: 5,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderColor: '#3d47514d'
   },
   planTitle: {
     fontSize: 20,
     fontWeight: "700",
-    color: "#333",
+    color: "white",
   },
   planPrice: {
     fontSize: 16,
-    color: "#444",
+    color: "#b6bec9",
     marginTop: 4,
   },
   planSubtitle: {
     marginTop: 10,
     fontWeight: "600",
-    color: "#333",
+    color: "white",
   },
   benefitItem: {
     flexDirection: "row",
@@ -172,26 +177,31 @@ const styles = StyleSheet.create({
   },
   benefitText: {
     marginLeft: 8,
-    color: "#333",
+    color: "#b6bec9",
   },
   upgradeBtn: {
-    backgroundColor: "#9D83D2",
+    backgroundColor: "#0068d0",
     paddingVertical: 14,
     borderRadius: 28,
     alignItems: "center",
     marginTop: 20,
-    shadowColor: "#000",
+    // shadowColor: "#000",
     shadowOpacity: 0.15,
-    shadowOffset: { width: 0, height: 4 },
+    // shadowOffset: { width: 0, height: 4 },
     elevation: 4,
+    borderTopWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: 'rgba(102, 179, 255, 0.2)'
   },
   upgradeText: {
-    color: "#fff",
+    color: "white",
     fontWeight: "700",
     fontSize: 16,
   },
   moreBtn: {
-    backgroundColor: "#9D83D2",
+    backgroundColor: "#0073e6",
     paddingVertical: 16,
     borderRadius: 30,
     alignItems: "center",
@@ -204,7 +214,7 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   moreText: {
-    color: "#fff",
+    color: "white",
     fontWeight: "600",
     fontSize: 16,
   },

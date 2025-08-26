@@ -27,7 +27,7 @@ const SignUpScreen = ({ navigation }) => {
         }
       ]}
     >
-      <StatusBar translucent backgroundColor="#000000" barStyle="light-content" />
+      <StatusBar translucent backgroundColor="#0f1214" barStyle="light-content" />
       
       {/* Back Arrow */}
       <TouchableOpacity style={styles.backArrow} onPress={() => navigation.goBack()}>
@@ -43,15 +43,8 @@ const SignUpScreen = ({ navigation }) => {
       <TextInput style={styles.input} value={password} onChangeText={setpassword} placeholder="Password" placeholderTextColor="#ccc" secureTextEntry />
 
       {/* Sign Up Button */}
-      <TouchableOpacity onPress={signuppress} style={{ marginTop: 20 }}>
-        <LinearGradient
-          colors={["#5B18D5", "#2307DA"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          style={styles.signupButton}
-        >
+      <TouchableOpacity  style={styles.signupButton} onPress={signuppress} >
           <Text style={styles.signupText}>Sign up</Text>
-        </LinearGradient>
       </TouchableOpacity>
 
       {/* Or Sign In With */}
@@ -78,7 +71,7 @@ export default SignUpScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: '#0f1214',
     paddingHorizontal: 30,
   },
   backArrow: {
@@ -107,6 +100,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.25,
     shadowRadius: 5,
+    backgroundColor:'#0073e6'
   },
   signupText: {
     color: 'white',

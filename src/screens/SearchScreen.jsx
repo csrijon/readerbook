@@ -7,9 +7,9 @@ const SearchScreen = ({ navigation }) => {
     const inset = useSafeAreaInsets()
     return (
         <SafeAreaView style={[styles.Container, { paddingTop: inset.top }]} >
-            <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+            <StatusBar translucent backgroundColor="#0f1214" barStyle="Light-content" />
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backArrow} >
-                <MaterialIcons name="arrow-back-ios" color="#000000" size={24} />
+                <MaterialIcons name="arrow-back-ios" color="#66b2ff" size={24} />
             </TouchableOpacity  >
 
             {/* Search Bar */}
@@ -72,8 +72,9 @@ export default SearchScreen;
 const styles = StyleSheet.create({
     Container: {
         flex: 1,
-        backgroundColor: '#',
+        backgroundColor: '#0f1214',
         paddingHorizontal: 16,
+        color:'white'
     },
     backArrow: {
         marginTop: 30,
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         fontFamily: 'Poppins',
-        color: '#000000',
+        color: 'white',
         marginBottom: 12,
     },
     categoriesWrapper: {
@@ -94,13 +95,18 @@ const styles = StyleSheet.create({
         gap: 10,
     },
     categoryItem: {
-        backgroundColor: '#EADDFF',
+        backgroundColor: '#14171acc',
         borderRadius: 8,
         paddingVertical: 6,
         paddingHorizontal: 12,
+        borderBottomWidth:1,
+        borderLeftWidth:1,
+        borderRightWidth:1,
+        borderTopWidth:1,
+        borderColor:'#3d47514d'
     },
     categoryText: {
-        color: '#000000',
+        color: '#b6bec9',
         fontSize: 14,
         fontWeight: '500',
     },
@@ -111,6 +117,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 12,
+        color:'white',
     },
     list: {
         alignItems: 'center',
@@ -126,7 +133,7 @@ const styles = StyleSheet.create({
     name: {
         marginTop: 6,
         fontSize: 12,
-        color: '#000',
+        color: '#b6bec9',
     },
     Trandingcontainer: {
         marginVertical: 20,
@@ -135,6 +142,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 12,
+        color:'white'
     },
     bookCard: {
         marginRight: 12,

@@ -29,7 +29,7 @@ const Morepro = ({navigation}) => {
       {/* Back Arrow */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Icon name="arrow-back" size={28} color="#000" />
+          <Icon name="arrow-back" size={28} color="#ffffff" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Plans</Text>
       </View>
@@ -72,7 +72,7 @@ export default Morepro;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#0f1114",
   },
   header: {
     flexDirection: "row",
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginLeft: 10,
+    color:'white'
   },
   card: {
     padding: 20,

@@ -25,12 +25,12 @@ const MainScreen = () => {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      <StatusBar translucent backgroundColor="transparent" barStyle="Light-content" />
+      <StatusBar translucent backgroundColor="#0f1114" barStyle="Light-content" />
       {/* Header */}
       <View style={styles.header}>
         
 <TouchableOpacity>
-  <MaterialIcons name="format-align-left" size={28} color="#66B2FF" />
+  <MaterialIcons name="format-align-left" size={28} color="#66b2ff" />
 </TouchableOpacity>
         <TouchableOpacity>
           <View style={styles.circles}>
@@ -91,11 +91,12 @@ export default MainScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: '#0f1214',
   },
   scroll: {
     paddingHorizontal: 16,
     flex: 1,
+    backgroundColor:'#0f1214'
   },
   circles: {
     width: 40,
@@ -116,7 +117,8 @@ const styles = StyleSheet.create({
   shadowOpacity: 0.05,   
   shadowRadius: 3,
   elevation: 2,          
-  borderRadius: 12,      
+  // borderRadius: 12,      
+  backgroundColor:'#0f1114'
 },
 
   headerTitle: {
