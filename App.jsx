@@ -42,11 +42,10 @@ const Tabs = () => {
       headerShown: false,
       tabBarHideOnKeyboard: true,
       tabBarStyle: {
-        backgroundColor: 'rgba(16,14,14,100)',
+        backgroundColor: '#0f1214',
         position: 'absolute',
-        borderTopLeftRadius:22,
-        borderTopRightRadius:22,
-        borderColor:'tansparent',
+        borderColor:'#3d47514d',
+        borderTopWidth:1
       },
       tabBarActiveTintColor: '#ffffff',
       tabBarInactiveTintColor: '#66B2FF',

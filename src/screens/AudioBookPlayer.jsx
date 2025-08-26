@@ -73,9 +73,9 @@ const AudioBookPlayer = ({ navigation }) => {
             </View>
             {/* add switch */}
             <View style={[styles.bottomswitch, { paddingBottom: insets.bottom }]} >
-                <Text>Up next</Text>
-                <Text>Lyrics</Text>
-                <Text>Related</Text>
+                <Text style={styles.bottamText} >Up next</Text>
+                <Text style={styles.bottamText}  >Lyrics</Text>
+                <Text style={styles.bottamText}  >Related</Text>
             </View>
 
         </SafeAreaView>
@@ -87,7 +87,7 @@ export default AudioBookPlayer;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#000000',
+        backgroundColor: '#0f1214',
         paddingHorizontal: 20,
         color: '#66B2FF'
     },
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
         color: '#ffffff'
     },
     normal: {
-        color: '#ffffff'
+        color: '#b6bec9'
     },
     seekbar: {
         width: '100%',
@@ -152,8 +152,12 @@ const styles = StyleSheet.create({
         padding: 15,
     },
     bottomswitch: {
-        marginTop: 90,
+        marginTop: 40,
         flexDirection: 'row',
-        justifyContent: 'space-around'
+        justifyContent: 'space-between',
+        color:'#b6bec9'
+    },
+    bottamText:{
+        color:'#b6bec9'
     }
 })
