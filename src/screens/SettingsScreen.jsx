@@ -28,7 +28,7 @@ const SettingsScreen = ({navigation}) => {
       {/* Profile Card */}
       <View style={styles.profileCard}>
         <Image
-          source={require('../assets/me.png')} // এখানে তোমার profile image দাও
+          source={require('../assets/me.png')} 
           style={styles.profileImage}
         />
         <View>
