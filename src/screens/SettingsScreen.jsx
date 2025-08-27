@@ -82,8 +82,9 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     marginBottom: 30,
+    paddingLeft:5,
   },
   headerTitle: {
     fontSize: 18,
