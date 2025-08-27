@@ -62,7 +62,7 @@ const Prosetion = ({ navigation }) => {
           <Text style={styles.benefitText}>Ad Free</Text>
         </View>
 
-        <TouchableOpacity style={styles.upgradeBtn}>
+        <TouchableOpacity  style={styles.upgradeBtn}>
           <Text style={styles.upgradeText}>Upgrade Now {">"}</Text>
         </TouchableOpacity>
       </View>

@@ -20,7 +20,7 @@ const booksFavourites = [
 ];
 
 // Functional Component
-const MainScreen = () => {
+const MainScreen = ({navigation}) => {
   const insets = useSafeAreaInsets();
 
   return (
@@ -28,12 +28,13 @@ const MainScreen = () => {
       <StatusBar translucent backgroundColor="#0f1114" barStyle="Light-content" />
       {/* Header */}
       <View style={styles.header}>
-        
-<TouchableOpacity>
-  <MaterialIcons name="format-align-left" size={28} color="#66b2ff" />
-</TouchableOpacity>
+
         <TouchableOpacity>
+          <MaterialIcons name="format-align-left" size={28} color="#66b2ff" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.navigate('Setting')} >
           <View style={styles.circles}>
+            <Image style={styles.circleImage} source={require('../assets/me.png')} />
           </View>
         </TouchableOpacity>
       </View>
@@ -96,30 +97,36 @@ const styles = StyleSheet.create({
   scroll: {
     paddingHorizontal: 16,
     flex: 1,
-    backgroundColor:'#0f1214'
+    backgroundColor: '#0f1214'
   },
   circles: {
     width: 40,
     height: 40,
-    borderRadius: 50,
+    borderRadius: 20,
     backgroundColor: '#ffffff',
+    overflow: 'hidden',
+  },
+  circleImage: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
   },
   header: {
-  height: 60,
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  paddingHorizontal: 16,
-  borderBottomWidth: 1,   
-  borderBottomColor: "rgba(241, 239, 239, 0.1)", 
-  shadowColor: "#000",
-  shadowOffset: { width: 0, height: 2 },
-  shadowOpacity: 0.05,   
-  shadowRadius: 3,
-  elevation: 2,          
-  // borderRadius: 12,      
-  backgroundColor:'#0f1114'
-},
+    height: 60,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: "rgba(241, 239, 239, 0.1)",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 3,
+    elevation: 2,
+    // borderRadius: 12,      
+    backgroundColor: '#0f1114'
+  },
 
   headerTitle: {
     color: '#fff',
@@ -136,17 +143,22 @@ const styles = StyleSheet.create({
     tintColor: '#fff',
   },
   sectionTitle: {
-    color:'white',
+    color: 'white',
     fontSize: 18,
     fontWeight: '600',
     marginVertical: 10,
   },
   bookCard: {
-    backgroundColor: 'rgba(168,161,161,0.15)',
-    borderRadius: 20,
+    backgroundColor: '#14171acc',
+    borderRadius: 23,
     marginRight: 12,
     padding: 20,
     alignItems: 'center',
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderColor: '#3d47514d'
   },
   bookImage: {
     width: 99,
