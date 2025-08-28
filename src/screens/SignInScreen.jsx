@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import { FacebookIcon, GoogleIcon, AppleIcon } from '../components/SocialIcons';
 
 
 const SignInScreen = ({ navigation }) => {
@@ -78,15 +79,18 @@ const SignInScreen = ({ navigation }) => {
 
         {/* Social Icons */}
         <View style={styles.socialContainer}>
-          <View style={styles.iconWrapper}>
-            <Image source={require('../assets/Google_logo.png')} style={styles.socialIcon} />
-          </View>
-          <View style={styles.iconWrapper}>
-            <Image source={require('../assets/f.png')} style={styles.socialIcon} />
-          </View>
-          <View style={styles.iconWrapper}>
-            <Image source={require('../assets/Apple_logo.png')} style={styles.socialIcon} />
-          </View>
+          <TouchableOpacity style={styles.iconWrapper}>
+            <FacebookIcon size={24} />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.iconWrapper}>
+            <GoogleIcon size={24} />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.iconWrapper}>
+            <AppleIcon size={28} />
+          </TouchableOpacity>
+
         </View>
       </SafeAreaView>
     </>
@@ -147,7 +151,8 @@ const styles = StyleSheet.create({
   iconWrapper: {
     width: 50,
     height: 50,
-    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#30384080',
     borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, SafeAreaView, StatusBar, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import LinearGradient from 'react-native-linear-gradient';
+import { FacebookIcon, GoogleIcon, AppleIcon } from '../components/SocialIcons';
 
 const SignUpScreen = ({ navigation }) => {
   const [email, setemail] = useState('')
@@ -28,7 +28,7 @@ const SignUpScreen = ({ navigation }) => {
       ]}
     >
       <StatusBar translucent backgroundColor="#0f1214" barStyle="light-content" />
-      
+
       {/* Back Arrow */}
       <TouchableOpacity style={styles.backArrow} onPress={() => navigation.goBack()}>
         <MaterialIcons name="arrow-back-ios" size={22} color="#fff" />
@@ -43,8 +43,8 @@ const SignUpScreen = ({ navigation }) => {
       <TextInput style={styles.input} value={password} onChangeText={setpassword} placeholder="Password" placeholderTextColor="#ccc" secureTextEntry />
 
       {/* Sign Up Button */}
-      <TouchableOpacity  style={styles.signupButton} onPress={signuppress} >
-          <Text style={styles.signupText}>Sign up</Text>
+      <TouchableOpacity style={styles.signupButton} onPress={signuppress} >
+        <Text style={styles.signupText}>Sign up</Text>
       </TouchableOpacity>
 
       {/* Or Sign In With */}
@@ -53,14 +53,23 @@ const SignUpScreen = ({ navigation }) => {
       {/* Social Buttons */}
       <View style={styles.socialContainer}>
         <View style={styles.iconWrapper}>
-          <Image source={require('../assets/Google_logo.png')} style={styles.socialIcon} />
+          <TouchableOpacity onPress={() => console.log("Facebook pressed")}>
+            <FacebookIcon size={24} color={'#66B2FF'} />
+          </TouchableOpacity>
         </View>
+
         <View style={styles.iconWrapper}>
-          <Image source={require('../assets/f.png')} style={styles.socialIcon} />
+          <TouchableOpacity onPress={() => console.log("Google pressed")}>
+            <GoogleIcon size={24} color={'#66B2FF'} />
+          </TouchableOpacity>
         </View>
+
         <View style={styles.iconWrapper}>
-          <Image source={require('../assets/Apple_logo.png')} style={styles.socialIcon} />
+          <TouchableOpacity onPress={() => console.log("Apple pressed")}>
+            <AppleIcon size={28} color={'#66B2FF'} />
+          </TouchableOpacity>
         </View>
+
       </View>
     </SafeAreaView>
   );
@@ -100,7 +109,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.25,
     shadowRadius: 5,
-    backgroundColor:'#0073e6'
+    backgroundColor: '#0073e6'
   },
   signupText: {
     color: 'white',
@@ -120,10 +129,11 @@ const styles = StyleSheet.create({
   iconWrapper: {
     width: 50,
     height: 50,
-    backgroundColor: '#fff',
+    borderColor: '#30384080',
     borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 1,
   },
   socialIcon: {
     width: 24,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
@@ -20,8 +20,9 @@ const booksFavourites = [
 ];
 
 // Functional Component
-const MainScreen = ({navigation}) => {
+const MainScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets();
+  const [Lightmode,Setlightmode] =  useState(true)
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -29,10 +30,13 @@ const MainScreen = ({navigation}) => {
       {/* Header */}
       <View style={styles.header}>
 
-        <TouchableOpacity>
-          <MaterialIcons name="format-align-left" size={28} color="#66b2ff" />
+        <TouchableOpacity onPress={()=>Setlightmode(!Lightmode) } >
+          <View style={styles.toggle} >
+            <MaterialIcons name={Lightmode?"dark-mode":"wb-sunny"}  size={24} color="#66B2FF" />
+          </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=> navigation.navigate('Setting')} >
+
+        <TouchableOpacity onPress={() => navigation.navigate('Setting')} >
           <View style={styles.circles}>
             <Image style={styles.circleImage} source={require('../assets/me.png')} />
           </View>
@@ -99,6 +103,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#0f1214'
   },
+  toggle: {
+    borderWidth: 1,
+    borderColor: '#30384080',
+    borderRadius: 15,
+    padding: 6,
+  },
   circles: {
     width: 40,
     height: 40,
@@ -115,7 +125,7 @@ const styles = StyleSheet.create({
     height: 60,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: "rgba(241, 239, 239, 0.1)",
@@ -125,7 +135,8 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 2,
     // borderRadius: 12,      
-    backgroundColor: '#0f1114'
+    backgroundColor: '#0f1114',
+    gap: 15
   },
 
   headerTitle: {

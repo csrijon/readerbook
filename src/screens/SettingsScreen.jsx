@@ -11,31 +11,33 @@ import {
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-const SettingsScreen = ({navigation}) => {
+const SettingsScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets()
   return (
-    <ScrollView style={[styles.container,{paddingTop:insets.top}]}>
-       <StatusBar translucent backgroundColor="#0f1214" barStyle="light-content" />
+    <ScrollView style={[styles.container, { paddingTop: insets.top }]}>
+      <StatusBar translucent backgroundColor="#0f1214" barStyle="light-content" />
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={()=> navigation.goBack()} >
+        <TouchableOpacity onPress={() => navigation.goBack()} >
           <MaterialIcons name="arrow-back-ios" size={22} color="#fff" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Settings</Text>
-        <View style={{ width: 22 }} /> 
+        <View style={{ width: 22 }} />
       </View>
 
       {/* Profile Card */}
-      <View style={styles.profileCard}>
-        <Image
-          source={require('../assets/me.png')} 
-          style={styles.profileImage}
-        />
-        <View>
-          <Text style={styles.profileName}>Srijon Chowdhury</Text>
-          <Text style={styles.profileEmail}>csrijon92@gmail.com</Text>
+      <TouchableOpacity>
+        <View style={styles.profileCard}>
+          <Image
+            source={require('../assets/me.png')}
+            style={styles.profileImage}
+          />
+          <View>
+            <Text style={styles.profileName}>Srijon Chowdhury</Text>
+            <Text style={styles.profileEmail}>csrijon92@gmail.com</Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
 
       {/* Menu Card */}
       <View style={styles.menuCard}>
@@ -75,16 +77,16 @@ const SettingsScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0f1214", 
-    paddingHorizontal:20,
-    marginTop:30,
+    backgroundColor: "#0f1214",
+    paddingHorizontal: 20,
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: 'space-between',
     marginBottom: 30,
-    paddingLeft:5,
+    marginTop: 30,
+    paddingLeft: 5,
   },
   headerTitle: {
     fontSize: 18,
@@ -119,7 +121,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#111",
     borderRadius: 12,
     paddingHorizontal: 20,
-    paddingVertical:20,
+    paddingVertical: 20,
   },
   row: {
     flexDirection: "row",
