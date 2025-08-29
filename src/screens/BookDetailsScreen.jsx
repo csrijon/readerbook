@@ -17,7 +17,7 @@ const BookDetailsScreen = ({navigation}) => {
     const insets = useSafeAreaInsets()
     return (
         <View style={[styles.container,{paddingTop:insets.top}]}>
-         <StatusBar translucent backgroundColor="#6C3EB4" barStyle="light-content" />
+         <StatusBar translucent backgroundColor="#42b43eff" barStyle="dark-content" />
             {/* Header */}
             <View style={styles.topSection}>
                 {/* Back Button */}
@@ -84,7 +84,7 @@ export default BookDetailsScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        // backgroundColor: "#fff",
     },
     topSection: {
         backgroundColor: "#6D4BB4",

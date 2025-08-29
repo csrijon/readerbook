@@ -45,7 +45,7 @@ export default function BookListScreen({navigation}) {
                   <MaterialIcons name="menu-book" size={18} color="#66b2ff" />
                   <Text style={styles.actionText}>Read</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.actionBtn}>
+                <TouchableOpacity onPress={()=>navigation.navigate('Audio') }  style={styles.actionBtn}>
                   <MaterialIcons name="play-circle" size={18} color="#66b2ff" />
                   <Text style={styles.actionText}>Play</Text>
                 </TouchableOpacity>

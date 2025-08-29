@@ -72,7 +72,7 @@ const AudioBookPlayer = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             {/* add switch */}
-            <View style={[styles.bottomswitch, { paddingBottom: insets.bottom }]} >
+            <View style={[styles.bottomswitch, ]} >
                 <Text style={styles.bottamText} >Up next</Text>
                 <Text style={styles.bottamText}  >Lyrics</Text>
                 <Text style={styles.bottamText}  >Related</Text>
@@ -152,9 +152,10 @@ const styles = StyleSheet.create({
         padding: 15,
     },
     bottomswitch: {
-        marginTop: 40,
+        marginTop: 50,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems:'center',
         color:'#b6bec9'
     },
     bottamText:{
