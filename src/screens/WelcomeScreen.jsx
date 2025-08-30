@@ -17,7 +17,7 @@ const WelcomeScreen = ({ navigation }) => {
 
       {/* Logo and Title */}
       <View style={styles.logoContainer}>
-        <Image source={require('../assets/Vector.png')} style={styles.logo} />
+        <Image source={require('../assets/logo.png')} style={styles.logo} />
         <Text style={styles.title}>ReadLink</Text>
       </View>
 
