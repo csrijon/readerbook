@@ -144,6 +144,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-around',
         marginTop: 30,
+        paddingTop:20,
         gap: 20
     },
     playButtonWrapper: {
@@ -156,6 +157,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems:'center',
+        paddingTop:20,
         color:'#b6bec9'
     },
     bottamText:{
