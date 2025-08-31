@@ -1,7 +1,7 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, StyleSheet, TouchableOpacity, View, Text, ScrollView, Image } from 'react-native';
+import {  StatusBar, StyleSheet, TouchableOpacity, View, Text, ScrollView, Image } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import {SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import Search from '../components/Search';
 const SearchScreen = ({ navigation }) => {
     const inset = useSafeAreaInsets()
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         color:'white'
     },
     backArrow: {
-        marginTop: 30,
+        // marginTop: 30,
     },
     mainCategories: {
         marginTop: 30,

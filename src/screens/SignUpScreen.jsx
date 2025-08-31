@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, SafeAreaView, StatusBar, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { View, Text, TextInput,  StatusBar, TouchableOpacity, Alert, StyleSheet, Image } from 'react-native';
+import {SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { FacebookIcon, GoogleIcon, AppleIcon } from '../components/SocialIcons';
 
@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
   },
   backArrow: {
     marginBottom: 30,
-    marginTop: 50
   },
   title: {
     color: 'white',

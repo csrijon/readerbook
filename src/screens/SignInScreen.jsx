@@ -5,7 +5,6 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Image,
   StatusBar,
   Alert,
 } from 'react-native';
@@ -34,10 +33,7 @@ const SignInScreen = ({ navigation }) => {
 
       <SafeAreaView
         style={[
-          styles.container,
-          {
-            paddingBottom: insets.bottom,
-          },
+          styles.container
         ]}
       >
         {/* Back Arrow */}

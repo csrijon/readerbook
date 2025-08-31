@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StatusBar, StyleSheet, Image } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import LinearGradient from 'react-native-linear-gradient';
+
 
 const WelcomeScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets();
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0f1214',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
   },
   logoContainer: {

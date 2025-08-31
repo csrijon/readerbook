@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  SafeAreaView,
   View,
   Text,
   StyleSheet,
@@ -10,7 +9,7 @@ import {
   StatusBar,
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import {SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import Search from '../components/Search';
 
 
@@ -73,7 +72,6 @@ const styles = StyleSheet.create({
   },
   backBtn: {
     paddingHorizontal: 16,
-    marginTop:30
   },
   scroll:{
     paddingHorizontal:8

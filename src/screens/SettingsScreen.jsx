@@ -9,75 +9,81 @@ import {
   StatusBar
 } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView,useSafeAreaInsets } from "react-native-safe-area-context";
 
 const SettingsScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets()
   return (
-    <ScrollView style={[styles.container, { paddingTop: insets.top }]}>
+    <SafeAreaView style={[styles.safeArea,{paddingTop:insets.top}]} >
       <StatusBar translucent backgroundColor="#0f1214" barStyle="light-content" />
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()} >
-          <MaterialIcons name="arrow-back-ios" size={22} color="#fff" />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Settings</Text>
-        <View style={{ width: 22 }} />
-      </View>
 
-      {/* Profile Card */}
-      <TouchableOpacity>
-        <View style={styles.profileCard}>
-          <Image
-            source={require('../assets/me.png')}
-            style={styles.profileImage}
-          />
-          <View>
-            <Text style={styles.profileName}>Srijon Chowdhury</Text>
-            <Text style={styles.profileEmail}>csrijon92@gmail.com</Text>
-          </View>
+      <ScrollView style={[styles.container,{}]} contentContainerStyle={{ paddingBottom: 20 }}>
+        {/* Header */}
+        <View style={styles.header}>
+          <TouchableOpacity onPress={() => navigation.goBack()} >
+            <MaterialIcons name="arrow-back-ios" size={22} color="#fff" />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>Settings</Text>
+          <View style={{ width: 22 }} />
         </View>
-      </TouchableOpacity>
 
-      {/* Menu Card */}
-      <View style={styles.menuCard}>
-        <TouchableOpacity style={styles.row}>
-          <MaterialIcons name="person-outline" size={22} color="#fff" style={styles.rowIcon} />
-          <Text style={styles.rowText}>Account</Text>
+        {/* Profile Card */}
+        <TouchableOpacity>
+          <View style={styles.profileCard}>
+            <Image
+              source={require('../assets/me.png')}
+              style={styles.profileImage}
+            />
+            <View>
+              <Text style={styles.profileName}>Srijon Chowdhury</Text>
+              <Text style={styles.profileEmail}>csrijon92@gmail.com</Text>
+            </View>
+          </View>
         </TouchableOpacity>
-        <View style={styles.divider} />
 
-        <TouchableOpacity style={styles.row}>
-          <MaterialIcons name="history" size={22} color="#fff" style={styles.rowIcon} />
-          <Text style={styles.rowText}>History</Text>
-        </TouchableOpacity>
-        <View style={styles.divider} />
+        {/* Menu Card */}
+        <View style={styles.menuCard}>
+          <TouchableOpacity style={styles.row}>
+            <MaterialIcons name="person-outline" size={22} color="#fff" style={styles.rowIcon} />
+            <Text style={styles.rowText}>Account</Text>
+          </TouchableOpacity>
+          <View style={styles.divider} />
 
-        <TouchableOpacity style={styles.row}>
-          <MaterialIcons name="lock-outline" size={22} color="#fff" style={styles.rowIcon} />
-          <Text style={styles.rowText}>Privacy</Text>
-        </TouchableOpacity>
-        <View style={styles.divider} />
+          <TouchableOpacity style={styles.row}>
+            <MaterialIcons name="history" size={22} color="#fff" style={styles.rowIcon} />
+            <Text style={styles.rowText}>History</Text>
+          </TouchableOpacity>
+          <View style={styles.divider} />
 
-        <TouchableOpacity style={styles.row}>
-          <MaterialIcons name="logout" size={22} color="#fff" style={styles.rowIcon} />
-          <Text style={styles.rowText}>Log Out</Text>
-        </TouchableOpacity>
-        <View style={styles.divider} />
+          <TouchableOpacity style={styles.row}>
+            <MaterialIcons name="lock-outline" size={22} color="#fff" style={styles.rowIcon} />
+            <Text style={styles.rowText}>Privacy</Text>
+          </TouchableOpacity>
+          <View style={styles.divider} />
 
-        <TouchableOpacity style={styles.row}>
-          <MaterialIcons name="download" size={22} color="#fff" style={styles.rowIcon} />
-          <Text style={styles.rowText}>Downloads</Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+          <TouchableOpacity style={styles.row}>
+            <MaterialIcons name="logout" size={22} color="#fff" style={styles.rowIcon} />
+            <Text style={styles.rowText}>Log Out</Text>
+          </TouchableOpacity>
+          <View style={styles.divider} />
+
+          <TouchableOpacity style={styles.row}>
+            <MaterialIcons name="download" size={22} color="#fff" style={styles.rowIcon} />
+            <Text style={styles.rowText}>Downloads</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#0f1214", 
+  },
   container: {
     flex: 1,
-    backgroundColor: "#0f1214",
     paddingHorizontal: 20,
   },
   header: {
@@ -85,7 +91,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: 'space-between',
     marginBottom: 30,
-    marginTop: 30,
+    // marginTop: 10, 
     paddingLeft: 5,
   },
   headerTitle: {

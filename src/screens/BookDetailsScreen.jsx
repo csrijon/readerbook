@@ -6,29 +6,32 @@ import {
     Image,
     TouchableOpacity,
     ScrollView,
-    StatusBar
+    StatusBar,
 } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 
-const BookDetailsScreen = ({navigation}) => {
+const BookDetailsScreen = ({ navigation }) => {
     const insets = useSafeAreaInsets()
     return (
-        <View style={[styles.container,{paddingTop:insets.top}]}>
-         <StatusBar translucent backgroundColor="#42b43eff" barStyle="dark-content" />
+        <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+            <StatusBar translucent backgroundColor="#0f1214" barStyle="dark-content" />
             {/* Header */}
-            <View style={styles.topSection}>
+            <View style={styles.headerContainer}>
                 {/* Back Button */}
-                <TouchableOpacity onPress={()=>navigation.goBack()} style={styles.backButton}>
+                <TouchableOpacity onPress={() => navigation.goBack()} style={styles.iconButton}>
                     <MaterialIcons name="arrow-back-ios" size={22} color="#fff" />
                 </TouchableOpacity>
 
                 {/* Share Button */}
-                <TouchableOpacity style={styles.shareButton}>
+                <TouchableOpacity style={styles.iconButton}>
                     <MaterialIcons name="ios-share" size={22} color="#fff" />
                 </TouchableOpacity>
+            </View>
+
+            <View style={styles.topSection}>
 
                 {/* Book Image */}
                 <Image
@@ -49,7 +52,7 @@ const BookDetailsScreen = ({navigation}) => {
                     <View style={styles.divider} />
 
                     {/* Listening */}
-                    <TouchableOpacity onPress={()=> navigation.navigate('Audio')} style={styles.tabButton}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Audio')} style={styles.tabButton}>
                         <Ionicons name="headset-outline" size={18} color="#fff" />
                         <Text style={styles.tabText}> Listening</Text>
                     </TouchableOpacity>
@@ -75,7 +78,7 @@ const BookDetailsScreen = ({navigation}) => {
             </ScrollView>
 
             {/* Bottom Navigation */}
-        </View>
+        </SafeAreaView>
     );
 };
 
@@ -84,11 +87,20 @@ export default BookDetailsScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // backgroundColor: "#fff",
+        backgroundColor: '#0f1214'
+    },
+    headerContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        paddingHorizontal: 16,
+        paddingBottom: 10,
+    },
+    iconButton: {
+        padding: 5,
     },
     topSection: {
-        backgroundColor: "#6D4BB4",
-        paddingTop: 70,
+        // paddingTop: 70,
         paddingHorizontal: 16,
         alignItems: "center",
         position: "relative",
@@ -116,18 +128,23 @@ const styles = StyleSheet.create({
         position: "absolute",
         bottom: -22,
         flexDirection: "row",
-        backgroundColor: "#9D83D2",
+        backgroundColor: "#14171acc",
+        borderTopWidth: 1,
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: '#3d47514d',
         borderRadius: 30,
         overflow: "hidden",
-        paddingHorizontal:10,
-        alignItems:'center'
+        paddingHorizontal: 10,
+        alignItems: 'center'
     },
     tabButton: {
         flexDirection: "row",
         paddingHorizontal: 20,
         paddingVertical: 14,
         alignItems: "center",
-        
+
     },
     activeTab: {
         borderBottomLeftRadius: 30,
@@ -153,7 +170,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "bold",
         marginBottom: 5,
-        color: "#000",
+        color: "#ffffff",
     },
     ratingRow: {
         flexDirection: "row",
@@ -163,23 +180,23 @@ const styles = StyleSheet.create({
     rating: {
         fontSize: 14,
         fontWeight: "bold",
-        color: "#000",
+        color: "#ffffff",
         marginLeft: 3,
     },
     reviews: {
         fontSize: 14,
-        color: "#555",
+        color: "#b6bec9",
     },
     summaryTitle: {
         fontSize: 16,
         fontWeight: "bold",
         marginBottom: 6,
-        color: "#000",
+        color: "#ffffff",
     },
     summaryText: {
         fontSize: 14,
         lineHeight: 20,
-        color: "#555",
+        color: "#b6bec9",
     },
     bottomNav: {
         flexDirection: "row",

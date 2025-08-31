@@ -3,7 +3,7 @@ import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, StatusBar 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 // Importing the hook to handle safe area (top notch, punch hole etc.)
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import {SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 // import Bottomnav from '../components/Bottomnav';
 
 // Dummy data for books
@@ -21,11 +21,11 @@ const booksFavourites = [
 
 // Functional Component
 const MainScreen = ({ navigation }) => {
-  const insets = useSafeAreaInsets();
+  // const insets = useSafeAreaInsets();
   const [Lightmode,Setlightmode] =  useState(true)
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
+    <SafeAreaView style={[styles.container, ]}>
       <StatusBar translucent backgroundColor="#0f1114" barStyle="Light-content" />
       {/* Header */}
       <View style={styles.header}>
@@ -87,7 +87,7 @@ const MainScreen = ({ navigation }) => {
         </ScrollView>
 
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

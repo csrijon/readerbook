@@ -25,7 +25,7 @@ const Stacks = () => {
   return (
     <Stack.Navigator
       initialRouteName="welcome"
-      screenOptions={{ headerShown: false }} >
+      screenOptions={{ headerShown: false,animationEnabled: true,animation:'ios_from_left' }} >
       <Stack.Screen name="welcome" component={WelcomeScreen} />
       <Stack.Screen name="signup" component={SignUpScreen} />
       <Stack.Screen name='signin' component={SignInScreen} />
@@ -43,6 +43,7 @@ const Tabs = () => {
     <Tab.Navigator initialRouteName='Home' screenOptions={{
       headerShown: false,
       tabBarHideOnKeyboard: true,
+      
       tabBarStyle: {
         backgroundColor: '#0f1214',
         position: 'absolute',
