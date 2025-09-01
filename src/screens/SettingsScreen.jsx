@@ -79,7 +79,7 @@ const SettingsScreen = ({ navigation }) => {
           </TouchableOpacity>
           <View style={styles.divider} />
 
-          <TouchableOpacity style={styles.row}>
+          <TouchableOpacity onPress={()=>navigation.navigate('Dload')} style={styles.row}>
             <MaterialIcons name="download" size={22} color="#fff" style={styles.rowIcon} />
             <Text style={styles.rowText}>Downloads</Text>
           </TouchableOpacity>
@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: 'space-between',
     marginBottom: 30,
-    // marginTop: 10, 
     paddingLeft: 5,
   },
   headerTitle: {

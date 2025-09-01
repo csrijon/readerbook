@@ -3,7 +3,7 @@ import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, StatusBar 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 // Importing the hook to handle safe area (top notch, punch hole etc.)
-import {SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import {SafeAreaView} from 'react-native-safe-area-context';
 // import Bottomnav from '../components/Bottomnav';
 
 // Dummy data for books

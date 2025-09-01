@@ -1,11 +1,9 @@
 // import 'react-native-gesture-handler';
 import React from 'react';
-// import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from "@react-navigation/native";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import { BlurView } from '@react-native-community/blur';
 import MainScreen from './src/screens/MainScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
@@ -17,6 +15,7 @@ import AudioBookPlayer from './src/screens/AudioBookPlayer';
 import Prosetion from './src/screens/Prosection';
 import Morepro from './src/screens/Morepro';
 import SettingsScreen from './src/screens/SettingsScreen';
+import Downloads from './src/screens/Downloads';
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -74,6 +73,7 @@ const Stacks = () => {
     component={Tabs} 
     options={{ animation: 'default' }} 
   />
+  <Stack.Screen name='Dload' component={Downloads}/>
 </Stack.Navigator>
   )
 };
