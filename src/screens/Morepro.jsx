@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import {SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
 
 const PlanCard = ({ title, price, benefits, bgColor }) => (
@@ -25,7 +25,7 @@ const PlanCard = ({ title, price, benefits, bgColor }) => (
 const Morepro = ({navigation}) => {
   const insets = useSafeAreaInsets()
   return(
- <View style={[styles.container,{paddingTop: insets.top}]}>
+ <SafeAreaView style={[styles.container,{paddingTop: insets.top}]}>
       {/* Back Arrow */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -63,7 +63,7 @@ const Morepro = ({navigation}) => {
           bgColor="#E5E4E2" // Platinum color
         />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   )
 }
 
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     paddingHorizontal: 15,
-    paddingTop:30,
+    // paddingTop:30,
     marginBottom: 20,
   },
   headerTitle: {

@@ -24,18 +24,58 @@ const Tab = createBottomTabNavigator()
 const Stacks = () => {
   return (
     <Stack.Navigator
-      initialRouteName="welcome"
-      screenOptions={{ headerShown: false,animationEnabled: true,animation:'ios_from_left' }} >
-      <Stack.Screen name="welcome" component={WelcomeScreen} />
-      <Stack.Screen name="signup" component={SignUpScreen} />
-      <Stack.Screen name='signin' component={SignInScreen} />
-      <Stack.Screen name='Details' component={BookDetailsScreen} />
-      <Stack.Screen name='Audio' component={AudioBookPlayer} />
-      <Stack.Screen name = 'Upgrade' component={Morepro}/>
-      <Stack.Screen name='Setting'  component={SettingsScreen}/>
-      <Stack.Screen name='Tabs' component={Tabs} />
-    </Stack.Navigator>
-  );
+  initialRouteName="welcome"
+  screenOptions={{ headerShown: false }}  
+>
+  <Stack.Screen 
+    name="welcome" 
+    component={WelcomeScreen} 
+    options={{ animation: 'ios_from_left' }} 
+  />
+
+  <Stack.Screen 
+    name="signup" 
+    component={SignUpScreen} 
+    options={{ animation: 'slide_from_right' }} 
+  />
+
+  <Stack.Screen 
+    name="signin" 
+    component={SignInScreen} 
+    options={{ animation: 'slide_from_bottom' }} 
+  />
+
+  <Stack.Screen 
+    name="Details" 
+    component={BookDetailsScreen} 
+    options={{ animation: 'fade_from_bottom' }} 
+  />
+
+  <Stack.Screen 
+    name="Audio" 
+    component={AudioBookPlayer} 
+    options={{ animation: 'none' }} 
+  />
+
+  <Stack.Screen 
+    name="Upgrade" 
+    component={Morepro} 
+    options={{ animation: 'flip' }} 
+  />
+
+  <Stack.Screen 
+    name="Setting" 
+    component={SettingsScreen} 
+    options={{ animation: 'slide_from_left' }} 
+  />
+
+  <Stack.Screen 
+    name="Tabs" 
+    component={Tabs} 
+    options={{ animation: 'default' }} 
+  />
+</Stack.Navigator>
+  )
 };
 
 const Tabs = () => {

@@ -6,13 +6,25 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  StatusBar
+  StatusBar,
+  Alert
 } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { SafeAreaView,useSafeAreaInsets } from "react-native-safe-area-context";
 
 const SettingsScreen = ({ navigation }) => {
   const insets = useSafeAreaInsets()
+
+  const showalart = () => {
+    Alert.alert('Log out of your Acccount?',
+      'Are you sure?',
+      [
+        {text:'cancel',style:'cancel'},
+        {text:'ok',onPress:()=>console.log('done'),style:'default'}
+      ]
+    )
+  }
+  
   return (
     <SafeAreaView style={[styles.safeArea,{paddingTop:insets.top}]} >
       <StatusBar translucent backgroundColor="#0f1214" barStyle="light-content" />
@@ -61,7 +73,7 @@ const SettingsScreen = ({ navigation }) => {
           </TouchableOpacity>
           <View style={styles.divider} />
 
-          <TouchableOpacity style={styles.row}>
+          <TouchableOpacity onPress={showalart} style={styles.row}>
             <MaterialIcons name="logout" size={22} color="#fff" style={styles.rowIcon} />
             <Text style={styles.rowText}>Log Out</Text>
           </TouchableOpacity>
