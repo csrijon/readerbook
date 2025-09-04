@@ -106,14 +106,14 @@ const Tabs = () => {
         }}
       />
 
-      <Tab.Screen name='search' component={SearchScreen}
+      <Tab.Screen name='Publish' component={SearchScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <MaterialIcons name="search" color={color} size={size} />
           )
         }}
       />
-      <Tab.Screen name='My Libary' component={BookListScreen} options={{
+      <Tab.Screen name='Libary' component={BookListScreen} options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialIcons name="person" color={color} size={size} />
         )

@@ -1,7 +1,7 @@
 import React from 'react';
-import {  StatusBar, StyleSheet, TouchableOpacity, View, Text, ScrollView, Image } from 'react-native';
+import { StatusBar, StyleSheet, TouchableOpacity, View, Text, ScrollView, Image } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import Search from '../components/Search';
 const SearchScreen = ({ navigation }) => {
     const inset = useSafeAreaInsets()
@@ -48,8 +48,8 @@ const SearchScreen = ({ navigation }) => {
             </View>
 
             <View style={styles.Trandingcontainer} >
-                <Text style={styles.Trandingheading} >Trending Books</Text>
-                <ScrollView horizontal
+                <Text style={styles.Trandingheading} >Reactly Played Books...</Text>
+                {/* <ScrollView horizontal
                     showsHorizontalScrollIndicator={false}
                     contentContainerStyle={{ paddingBottom: inset.bottom + 80 }}
                 >
@@ -59,7 +59,28 @@ const SearchScreen = ({ navigation }) => {
                         </View>
                     )
                     )}
+                </ScrollView> */}
+                <ScrollView
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={{ paddingBottom: inset.bottom + 80 }}
+                >
+                    {books.map((book) => (
+                        <View style={styles.bookCard} key={book.id}>
+                            <Image source={book.image} style={styles.cardImage} />
+                            {/* {overlay rateing} */}
+                            <View style={styles.ratingBadge}>
+                                <Text style={styles.ratingText}>{book.rating}4/5</Text>
+                            </View>
+                            {/* {overlay text} */}
+                            <View style={styles.overlay}>
+                                <Text style={styles.title}>{book.title}</Text>
+                                <Text style={styles.subtitle}>{book.subtitle}</Text>
+                            </View>
+                        </View>
+                    ))}
                 </ScrollView>
+
             </View>
 
 
@@ -74,7 +95,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#0f1214',
         paddingHorizontal: 16,
-        color:'white'
+        color: 'white'
     },
     backArrow: {
         // marginTop: 30,
@@ -99,11 +120,11 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         paddingVertical: 6,
         paddingHorizontal: 12,
-        borderBottomWidth:1,
-        borderLeftWidth:1,
-        borderRightWidth:1,
-        borderTopWidth:1,
-        borderColor:'#3d47514d'
+        borderBottomWidth: 1,
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
+        borderTopWidth: 1,
+        borderColor: '#3d47514d'
     },
     categoryText: {
         color: '#b6bec9',
@@ -117,7 +138,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 12,
-        color:'white',
+        color: 'white',
     },
     list: {
         alignItems: 'center',
@@ -129,6 +150,9 @@ const styles = StyleSheet.create({
     Img: {
         width: 70,
         height: 70,
+        borderWidth: 3,
+        borderColor: "#66B2FF",
+        borderRadius: 35,
     },
     name: {
         marginTop: 6,
@@ -142,12 +166,59 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 12,
-        color:'white'
+        color: 'white'
     },
+    // bookCard: {
+    //     marginRight: 12,
+    //     borderRadius: 10,
+    //     overflow: 'hidden',
+    // },
     bookCard: {
-        marginRight: 12,
-        borderRadius: 10,
-        overflow: 'hidden',
+        width: 180,
+        height: 240,
+        borderRadius: 38,
+        marginRight: 16,
+        overflow: "hidden", // ensures image respects borderRadius
+        backgroundColor: "#000", // fallback color
+    },
+    cardImage: {
+        width: "100%",
+        height: "100%",
+        resizeMode: "cover", 
+    },
+    ratingBadge: {
+        position: "absolute",
+        top: 10,
+        left: 10,
+        paddingHorizontal: 10,
+        paddingVertical: 4,
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: "#3d47514d",
+        backgroundColor: "14171acc", // transparent bg like in your design
+    },
+    ratingText: {
+        color: "#fff",
+        fontSize: 12,
+        fontWeight: "bold",
+    },
+    overlay: {
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        padding: 12,
+        backgroundColor: "rgba(24, 24, 24, 0.4)", // semi-transparent gradient effect
+    },
+    title: {
+        color: "#fff",
+        fontWeight: "bold",
+        fontSize: 16,
+    },
+    subtitle: {
+        color: "#ddd",
+        fontSize: 13,
+        marginTop: 2,
     },
     navButton: {
         padding: 10,

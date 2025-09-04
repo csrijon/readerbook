@@ -3,7 +3,7 @@ import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, StatusBar 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 // Importing the hook to handle safe area (top notch, punch hole etc.)
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 // import Bottomnav from '../components/Bottomnav';
 
 // Dummy data for books
@@ -22,17 +22,17 @@ const booksFavourites = [
 // Functional Component
 const MainScreen = ({ navigation }) => {
   // const insets = useSafeAreaInsets();
-  const [Lightmode,Setlightmode] =  useState(true)
+  const [Lightmode, Setlightmode] = useState(true)
 
   return (
-    <SafeAreaView style={[styles.container, ]}>
+    <SafeAreaView style={[styles.container,]}>
       <StatusBar translucent backgroundColor="#0f1114" barStyle="Light-content" />
       {/* Header */}
       <View style={styles.header}>
 
-        <TouchableOpacity onPress={()=>Setlightmode(!Lightmode) } >
+        <TouchableOpacity onPress={() => Setlightmode(!Lightmode)} >
           <View style={styles.toggle} >
-            <MaterialIcons name={Lightmode?"dark-mode":"wb-sunny"}  size={24} color="#66B2FF" />
+            <MaterialIcons name={Lightmode ? "dark-mode" : "wb-sunny"} size={24} color="#66B2FF" />
           </View>
         </TouchableOpacity>
 
@@ -51,10 +51,15 @@ const MainScreen = ({ navigation }) => {
           {booksTrending.map((book) => (
             <View key={book.id} style={styles.bookCard}>
               <Image source={book.image} style={styles.bookImage} />
-              {/* <Text>{book.title}</Text> */}
+
+              {/* Rating Badge */}
+              <View style={styles.ratingBadge}>
+                <Text style={styles.ratingText}>{book.rating}4/5</Text>
+              </View>
             </View>
           ))}
         </ScrollView>
+
         {/* Favourites Section */}
         <View style={styles.favHeader}>
           <Text style={styles.sectionTitle}>Your Favourites</Text>
@@ -63,13 +68,19 @@ const MainScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {booksFavourites.map((book) => (
+  <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {booksTrending.map((book) => (
             <View key={book.id} style={styles.bookCard}>
               <Image source={book.image} style={styles.bookImage} />
+
+              {/* Rating Badge */}
+              <View style={styles.ratingBadge}>
+                <Text style={styles.ratingText}>{book.rating}4/5</Text>
+              </View>
             </View>
           ))}
         </ScrollView>
+
 
         <View style={styles.topheafder} >
           <Text style={styles.sectionTitle} >Top 10</Text>
@@ -78,13 +89,19 @@ const MainScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <ScrollView horizontal>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {booksTrending.map((book) => (
-            <View key={book.id} style={styles.bookCard} >
+            <View key={book.id} style={styles.bookCard}>
               <Image source={book.image} style={styles.bookImage} />
+
+              {/* Rating Badge */}
+              <View style={styles.ratingBadge}>
+                <Text style={styles.ratingText}>{book.rating}4/5</Text>
+              </View>
             </View>
           ))}
         </ScrollView>
+
 
       </ScrollView>
     </SafeAreaView>
@@ -99,7 +116,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0f1214',
   },
   scroll: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 22,
     flex: 1,
     backgroundColor: '#0f1214'
   },
@@ -157,26 +174,40 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     fontWeight: '600',
-    marginVertical: 10,
+    marginVertical: 15,
   },
   bookCard: {
+    width: 150,
+    height: 210,
     backgroundColor: '#14171acc',
     borderRadius: 23,
     marginRight: 12,
-    padding: 20,
-    alignItems: 'center',
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    borderColor: '#3d47514d'
+    borderWidth: 1,
+    borderColor: '#3d47514d',
   },
   bookImage: {
-    width: 99,
-    height: 157,
+    width: '100%',
+    height: '100%',
+    borderRadius: 23,
     resizeMode: 'cover',
-    borderRadius: 10,
   },
+  ratingBadge: {
+  position: 'absolute',
+  top: 10,
+  left: 10,
+  paddingHorizontal: 10,
+  paddingVertical: 4,
+  borderRadius: 12,
+  borderWidth: 1,
+  borderColor: '#30384080',
+  backgroundColor: '#14171acc',
+},
+ratingText: {
+  color: '#fff',
+  fontSize: 12,
+  fontWeight: 'bold',
+},
+
   favHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
