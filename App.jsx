@@ -16,7 +16,6 @@ import Prosetion from './src/screens/Prosection';
 import Morepro from './src/screens/Morepro';
 import SettingsScreen from './src/screens/SettingsScreen';
 import Downloads from './src/screens/Downloads';
-
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 

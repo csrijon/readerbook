@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Search from '../components/Search';
 
 // Importing the hook to handle safe area (top notch, punch hole etc.)
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -10,12 +12,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 const booksTrending = [
   { id: 1, title: '7 Habits', image: require('../assets/image7.png') },
   { id: 2, title: 'Zero to One', image: require('../assets/image7.png') },
-  { id: 4, title: '365 Days', image: require('../assets/image7.png') },
-];
-// Dummy data for books
-const booksFavourites = [
-  { id: 3, title: 'Think and Grow Rich', image: require('../assets/image7.png') },
-  { id: 4, title: '365 Days', image: require('../assets/image7.png') },
   { id: 4, title: '365 Days', image: require('../assets/image7.png') },
 ];
 
@@ -42,6 +38,9 @@ const MainScreen = ({ navigation }) => {
           </View>
         </TouchableOpacity>
       </View>
+      {/* <View style = {styles.mainsearch} >
+<Search placeholder = "Search Here..." />
+      </View> */}
 
       <ScrollView style={styles.scroll}
         contentContainerStyle={{ paddingBottom: 80 }} >
@@ -52,10 +51,18 @@ const MainScreen = ({ navigation }) => {
             <View key={book.id} style={styles.bookCard}>
               <Image source={book.image} style={styles.bookImage} />
 
-              {/* Rating Badge */}
+              {/* Rating Badge - Left */}
               <View style={styles.ratingBadge}>
                 <Text style={styles.ratingText}>{book.rating}4/5</Text>
               </View>
+
+              {/* Crown Icon - Right */}
+              <MaterialCommunityIcons
+                name="crown"
+                size={24}
+                color="#f4a300"
+                style={styles.crownIcon}
+              />
             </View>
           ))}
         </ScrollView>
@@ -67,16 +74,23 @@ const MainScreen = ({ navigation }) => {
             <Text style={styles.viewAll}>View All</Text>
           </TouchableOpacity>
         </View>
-
-  <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {booksTrending.map((book) => (
             <View key={book.id} style={styles.bookCard}>
               <Image source={book.image} style={styles.bookImage} />
 
-              {/* Rating Badge */}
+              {/* Rating Badge - Left */}
               <View style={styles.ratingBadge}>
                 <Text style={styles.ratingText}>{book.rating}4/5</Text>
               </View>
+
+              {/* Crown Icon - Right */}
+              <MaterialCommunityIcons
+                name="crown"
+                size={24}
+                color="#f4a300"
+                style={styles.crownIcon}
+              />
             </View>
           ))}
         </ScrollView>
@@ -89,15 +103,23 @@ const MainScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {booksTrending.map((book) => (
             <View key={book.id} style={styles.bookCard}>
               <Image source={book.image} style={styles.bookImage} />
 
-              {/* Rating Badge */}
+              {/* Rating Badge - Left */}
               <View style={styles.ratingBadge}>
                 <Text style={styles.ratingText}>{book.rating}4/5</Text>
               </View>
+
+              {/* Crown Icon - Right */}
+              <MaterialCommunityIcons
+                name="crown"
+                size={24}
+                color="#f4a300"
+                style={styles.crownIcon}
+              />
             </View>
           ))}
         </ScrollView>
@@ -114,6 +136,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0f1214',
+  },
+  crownIcon: {
+    position: "absolute",
+    top: 8,
+    right: 8,
+  },
+  mainsearch: {
+    paddingHorizontal: 22
   },
   scroll: {
     paddingHorizontal: 22,
@@ -192,21 +222,21 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   ratingBadge: {
-  position: 'absolute',
-  top: 10,
-  left: 10,
-  paddingHorizontal: 10,
-  paddingVertical: 4,
-  borderRadius: 12,
-  borderWidth: 1,
-  borderColor: '#30384080',
-  backgroundColor: '#14171acc',
-},
-ratingText: {
-  color: '#fff',
-  fontSize: 12,
-  fontWeight: 'bold',
-},
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#30384080',
+    backgroundColor: '#14171acc',
+  },
+  ratingText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
 
   favHeader: {
     flexDirection: 'row',
