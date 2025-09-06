@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 22
   },
   scroll: {
-    paddingHorizontal: 22,
+    paddingHorizontal: 25,
     flex: 1,
     backgroundColor: '#0f1214'
   },
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
     marginVertical: 15,
   },
   bookCard: {
-    width: 150,
+    width: 170,
     height: 210,
     backgroundColor: '#14171acc',
     borderRadius: 23,
